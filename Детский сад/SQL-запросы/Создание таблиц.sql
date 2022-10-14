@@ -1,0 +1,117 @@
+use [41П_МДК01.01_Сергеев]
+
+CREATE TABLE Positions
+(
+Id_position INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+Position NVARCHAR(50)  NOT NULL
+)
+
+
+CREATE TABLE Roles
+(
+Id_role INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+Role_name NVARCHAR(20)  NOT NULL
+)
+
+
+CREATE TABLE Genders
+(
+Id_gender INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+Gender NVARCHAR(10)  NOT NULL
+)
+
+
+CREATE TABLE Employees
+(
+Id_employee INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+Surname NVARCHAR(50)  NOT NULL,
+Names NVARCHAR(50)  NOT NULL,
+Patronymic NVARCHAR(50) DEFAULT 'Отсутствует' NOT NULL,
+Birthdate DATE  NOT NULL,
+Id_gender INT FOREIGN KEY REFERENCES Genders (Id_gender) NOT NULL,
+Id_position INT FOREIGN KEY REFERENCES Positions (Id_position) NOT NULL,
+Street NVARCHAR(50)  NOT NULL,
+Building NVARCHAR(10)  NOT NULL,
+Phone NVARCHAR(20)  NOT NULL,
+Login_user NVARCHAR(20)  NOT NULL,
+Password_user int  NOT NULL,
+Id_role INT FOREIGN KEY REFERENCES Roles (Id_role) NOT NULL,
+)
+
+
+CREATE TABLE Types_group
+(
+Id_type INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+Type_group NVARCHAR(50)  NOT NULL
+)
+
+
+CREATE TABLE Groups
+(
+Id_group INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+Id_type INT FOREIGN KEY REFERENCES Types_group (Id_type) NOT NULL,
+Code INT NOT NULL
+)
+
+
+CREATE TABLE Distributions
+(
+Id_distribution INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+Id_group INT FOREIGN KEY REFERENCES Groups (Id_group) NOT NULL,
+Id_type INT FOREIGN KEY REFERENCES Types_group (Id_type) NOT NULL
+)
+
+
+CREATE TABLE Parents
+(
+Id_parent INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+Surname NVARCHAR(50)  NOT NULL,
+Names NVARCHAR(50)  NOT NULL,
+Patronymic NVARCHAR(50) DEFAULT 'Отсутствует'  NOT NULL,
+Birthdate DATE  NOT NULL,
+Id_gender INT FOREIGN KEY REFERENCES Genders (Id_gender) NOT NULL,
+Street NVARCHAR(50)  NOT NULL,
+Building NVARCHAR(10)  NOT NULL,
+Phone NVARCHAR(20)  NOT NULL
+)
+
+
+CREATE TABLE Sertificates
+(
+Id_sertificate INT PRIMARY KEY NOT NULL,
+Series INT  NOT NULL,
+Number NVARCHAR(10)  NOT NULL,
+Date_issue DATE  NOT NULL,
+Iddued NVARCHAR(100) NOT NULL
+)
+
+
+CREATE TABLE Children
+(
+Id_child INT IDENTITY(1,1) PRIMARY KEY FOREIGN KEY REFERENCES Sertificates (Id_sertificate) NOT NULL,
+Surname NVARCHAR(50)  NOT NULL,
+Names NVARCHAR(50)  NOT NULL,
+Patronymic NVARCHAR(50) DEFAULT 'Отсутствует'  NOT NULL,
+Birthdate DATE  NOT NULL,
+Id_gender INT FOREIGN KEY REFERENCES Genders (Id_gender) NOT NULL,
+Id_group INT FOREIGN KEY REFERENCES Groups (Id_group) NOT NULL,
+Street NVARCHAR(50)  NOT NULL,
+Building NVARCHAR(10)  NOT NULL
+)
+
+
+CREATE TABLE Attendance
+(
+Id_visit INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+Date_visit DATE  NOT NULL,
+Id_child INT FOREIGN KEY REFERENCES Children (Id_child) NOT NULL,
+Status_visit INT DEFAULT 1 NOT NULL
+)
+
+
+CREATE TABLE Kinships
+(
+Id_kinship INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+Id_parent INT FOREIGN KEY REFERENCES Parents (Id_parent) NOT NULL,
+Id_child INT FOREIGN KEY REFERENCES Children (Id_child) NOT NULL
+)

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="168b4f7da81447d481fb287b783cd3ff" Name="Diagram1">
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Attendance" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Children" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Distributions" Width="1.5" PointX="6.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Employees" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Genders" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Groups" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Kinships" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Parents" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Positions" Width="1.5" PointX="3.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Roles" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Sertificates" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.sysdiagrams" Width="1.5" PointX="8.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Types_group" Width="1.5" PointX="1.5" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="ModelKindergartenEntities.FK__Attendanc__Id_ch__5F7E2DAC" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelKindergartenEntities.FK__Children__Id_chi__5AB9788F" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelKindergartenEntities.FK__Children__Id_gen__5BAD9CC8" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelKindergartenEntities.FK__Children__Id_gro__5CA1C101" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelKindergartenEntities.FK__Kinships__Id_chi__70A8B9AE" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelKindergartenEntities.FK__Distribut__Id_gr__51300E55" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelKindergartenEntities.FK__Distribut__Id_ty__5224328E" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelKindergartenEntities.FK__Employees__Id_ge__1E6F845E" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelKindergartenEntities.FK__Employees__Id_po__1F63A897" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelKindergartenEntities.FK__Employees__Id_ro__2057CCD0" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelKindergartenEntities.FK__Parents__Id_gend__6CD828CA" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelKindergartenEntities.FK__Groups__Id_type__4E53A1AA" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelKindergartenEntities.FK__Kinships__Id_par__6FB49575" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

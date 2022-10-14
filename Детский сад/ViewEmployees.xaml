@@ -1,0 +1,58 @@
+﻿<Page x:Class="Детский_сад.ViewEmployees"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Детский_сад"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="ViewEmployees">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <TextBlock Text="Сортировка по фамилии"/>
+            <Button Name="btnSortAsc" Content="По возрастанию" Click="btnSortAsc_Click"/>
+            <Button Name="btnSortDesc" Content="По убыванию" Click="btnSortDesc_Click"/>
+            <Button Name="btnDefault" Content="Очистить фильтр" Click="btnDefault_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="Сортировка по полу"/>
+            <RadioButton Name="rbMale" Content="Мужской"/>
+            <RadioButton Name="rbFemale" Content="Женский"/>
+            <RadioButton Name="rbClear" Content="Отсутствует"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2">
+            <TextBlock Text="Поиск"/>
+            <RadioButton Name="rbFindSurname" Content="По фамилии"/>
+            <RadioButton Name="rbFindName" Content="По имени"/>
+            <TextBox Name="tboxFind"/>
+        </StackPanel>
+        
+        <DataGrid Name="dgv" AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="3">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Names}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthdate}"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding Genders.Gender}"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding Positions.Position}"/>
+                <DataGridTextColumn Header="Улица" Binding="{Binding Street}"/>
+                <DataGridTextColumn Header="Строение" Binding="{Binding Building}"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login_user}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
