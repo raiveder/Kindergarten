@@ -6,10 +6,18 @@
     <Application.Resources>
 
         <ControlTemplate TargetType="Button" x:Key="btnTemplate">
-            <Border CornerRadius="10" BorderThickness="1" BorderBrush="Black" Background="NavajoWhite" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100">
-                <ContentControl Content="{TemplateBinding Content}" FontFamily="Arial Narrow" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Border x:Name="btnBorder" CornerRadius="10" BorderThickness="1" BorderBrush="Black" Background="NavajoWhite" Padding="10" HorizontalAlignment="Center"
+                    VerticalAlignment="Center" MinWidth="100" Cursor="Hand">
+                <ContentControl x:Name="bntControl" Content="{TemplateBinding Content}" FontFamily="Arial Narrow" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="btnBorder" Property="Background" Value="PapayaWhip"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
         </ControlTemplate>
+
+
 
         <Style x:Key="Header" TargetType="TextBlock">
             <Setter Property="FontSize" Value="25"/>
@@ -24,54 +32,64 @@
             <Setter Property="Margin" Value="0 10 10 5"/>
         </Style>
 
-        <Style x:Key="tbAvtor" TargetType="TextBlock">
+        <Style x:Key="tbAvtorReg" TargetType="TextBlock">
             <Setter Property="FontSize" Value="25"/>
             <Setter Property="FontFamily" Value="Arial Narrow"/>
-            <Setter Property="Margin" Value="0 0 10 0"/>
+            <Setter Property="Margin" Value="10 0 10 0"/>
         </Style>
 
         <Style x:Key="tboxAvtor" TargetType="TextBox">
             <Setter Property="FontSize" Value="25"/>
             <Setter Property="FontFamily" Value="Arial Narrow"/>
-            <Setter Property="MinWidth" Value="150"/>
+            <Setter Property="Width" Value="150"/>
             <Setter Property="Height" Value="35"/>
         </Style>
 
         <Style x:Key="pbAvtor" TargetType="PasswordBox">
             <Setter Property="FontSize" Value="25"/>
             <Setter Property="FontFamily" Value="Arial Narrow"/>
-            <Setter Property="MinWidth" Value="150"/>
+            <Setter Property="Width" Value="150"/>
             <Setter Property="Height" Value="35"/>
         </Style>
         
         
 
-        <Style x:Key="tbReg" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="25"/>
-            <Setter Property="FontFamily" Value="Arial Narrow"/>
-            <Setter Property="Margin" Value="10 0 10 0"/>
-        </Style>
-
         <Style x:Key="tboxReg" TargetType="TextBox">
             <Setter Property="FontSize" Value="25"/>
             <Setter Property="FontFamily" Value="Arial Narrow"/>
-            <Setter Property="MinWidth" Value="170"/>
+            <Setter Property="Width" Value="200"/>
             <Setter Property="Height" Value="35"/>
         </Style>
 
         <Style x:Key="cbReg" TargetType="ComboBox">
             <Setter Property="FontSize" Value="25"/>
             <Setter Property="FontFamily" Value="Arial Narrow"/>
-            <Setter Property="MinWidth" Value="170"/>
+            <Setter Property="MinWidth" Value="200"/>
             <Setter Property="Height" Value="35"/>
+            <Setter Property="MaxDropDownHeight" Value="90"/>
         </Style>
         
         <Style x:Key="dpReg" TargetType="DatePicker">
             <Setter Property="FontSize" Value="25"/>
             <Setter Property="FontFamily" Value="Arial Narrow"/>
-            <Setter Property="MinWidth" Value="170"/>
+            <Setter Property="MinWidth" Value="200"/>
             <Setter Property="Height" Value="35"/>
         </Style>
-        
+
+
+
+        <Style x:Key="tbViewEmp" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontFamily" Value="Arial Narrow"/>
+            <Setter Property="Margin" Value="0 10 0 10"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="rbViewEmp" TargetType="RadioButton">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Arial Narrow"/>
+            <Setter Property="Margin" Value="0 0 20 10"/>
+        </Style>
+
     </Application.Resources>
 </Application>

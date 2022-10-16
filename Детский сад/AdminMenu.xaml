@@ -9,7 +9,7 @@
       Title="AdminMenu">
 
     <Grid>
-        <Button Name="btnViewEmp" Content="Сотрудники" Click="btnViewEmp_Click"/>
+        <Button Name="btnViewEmp" Content="Сотрудники" Template="{StaticResource btnTemplate}" Click="btnViewEmp_Click"/>
 
     </Grid>
 </Page>

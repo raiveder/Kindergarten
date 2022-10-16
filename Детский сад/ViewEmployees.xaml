@@ -5,13 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Детский_сад"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="1000"
+      d:DesignHeight="480" d:DesignWidth="1000"
       Title="ViewEmployees">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1.1*"/>
+            <RowDefinition Height="1.8*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -19,28 +21,33 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel>
-            <TextBlock Text="Сортировка по фамилии"/>
-            <Button Name="btnSortAsc" Content="По возрастанию" Click="btnSortAsc_Click"/>
-            <Button Name="btnSortDesc" Content="По убыванию" Click="btnSortDesc_Click"/>
-            <Button Name="btnDefault" Content="Очистить фильтр" Click="btnDefault_Click"/>
+        <TextBlock Text="Сортировка по фамилии" Style="{StaticResource tbViewEmp}"/>
+        <StackPanel Grid.Row="1" Margin="10 0 10 0" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="btnSortAsc" Content="По возрастанию" Template="{StaticResource btnTemplate}" Click="btnSortAsc_Click" Margin="0 0 20 0"/>
+                <Button Name="btnSortDesc" Content="По убыванию" Template="{StaticResource btnTemplate}" Click="btnSortDesc_Click"/>
+            </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Column="1">
-            <TextBlock Text="Сортировка по полу"/>
-            <RadioButton Name="rbMale" Content="Мужской"/>
-            <RadioButton Name="rbFemale" Content="Женский"/>
-            <RadioButton Name="rbClear" Content="Отсутствует"/>
+        <TextBlock Grid.Column="1" Text="Сортировка по полу" Style="{StaticResource tbViewEmp}"/>
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="10 0 10 0" VerticalAlignment="Center">
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <RadioButton Name="rbMale" Content="Мужской" Style="{StaticResource rbViewEmp}"/>
+                <RadioButton Name="rbFemale" Content="Женский" Style="{StaticResource rbViewEmp}"/>
+            </StackPanel>
+            <RadioButton Name="rbClear" Content="Отсутствует" Style="{StaticResource rbViewEmp}" HorizontalAlignment="Center"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="2">
-            <TextBlock Text="Поиск"/>
-            <RadioButton Name="rbFindSurname" Content="По фамилии"/>
-            <RadioButton Name="rbFindName" Content="По имени"/>
-            <TextBox Name="tboxFind"/>
+        <TextBlock Grid.Column="2" Text="Поиск" Style="{StaticResource tbViewEmp}"/>
+        <StackPanel Grid.Column="2" Grid.Row="1" Margin="10 0 10 0" VerticalAlignment="Center">
+            <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <RadioButton Name="rbFindSurname" Content="По фамилии" Style="{StaticResource rbViewEmp}"/>
+                <RadioButton Name="rbFindName" Content="По имени" Style="{StaticResource rbViewEmp}"/>
+            </StackPanel>
+            <TextBox Name="tboxFind" Style="{StaticResource tboxReg}" HorizontalAlignment="Center"/>
         </StackPanel>
-        
-        <DataGrid Name="dgv" AutoGenerateColumns="False" Grid.Row="1" Grid.ColumnSpan="3">
+
+        <DataGrid Name="dgv" AutoGenerateColumns="False" Grid.Row="2" Grid.ColumnSpan="3">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Names}"/>
@@ -54,5 +61,7 @@
                 <DataGridTextColumn Header="Логин" Binding="{Binding Login_user}"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <Button Name="btnDefault" Grid.Row="3" Grid.Column="2" Content="Очистить фильтр" Template="{StaticResource btnTemplate}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Click="btnDefault_Click"/>
     </Grid>
 </Page>

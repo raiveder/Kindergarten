@@ -5,22 +5,22 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Детский_сад"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="1000"
+      d:DesignHeight="480" d:DesignWidth="1000"
       Title="Avtor">
 
     <Grid>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <StackPanel VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
-                    <TextBlock Text="Логин" Style="{StaticResource tbAvtor}"/>
+                    <TextBlock Text="Логин" Style="{StaticResource tbAvtorReg}"/>
                     <TextBox x:Name="tboxLogin" Style="{StaticResource tboxAvtor}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
-                    <TextBlock Text="Пароль" Style="{StaticResource tbAvtor}"/>
+                    <TextBlock Text="Пароль" Style="{StaticResource tbAvtorReg}"/>
                     <PasswordBox x:Name="pbPassword" Style="{StaticResource pbAvtor}"/>
                 </StackPanel>
             </StackPanel>
-            <Button Name="btnAvtor" Content="Войти" Template="{StaticResource btnTemplate}" HorizontalAlignment="Left" Margin="20 0 0 0" Click="btnAvtor_Click"/>
+            <Button Name="btnAvtor" Content="Войти" Template="{StaticResource btnTemplate}" Margin="20 0 10 0" Click="btnAvtor_Click"/>
         </StackPanel>
     </Grid>
 </Page>

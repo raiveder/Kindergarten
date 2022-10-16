@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Детский_сад"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="1000"
+      d:DesignHeight="480" d:DesignWidth="1000"
       Title="Reg">
 
     <Grid>
@@ -18,54 +18,64 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0">
-            <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
-                <TextBlock Text="Фамилия" Style="{StaticResource tbReg}"/>
-                <TextBox Name="tboxSurname" Style="{StaticResource tboxReg}"/>
+        <StackPanel Grid.ColumnSpan="2" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
+                <StackPanel VerticalAlignment="Center" Width="500">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
+                            <TextBlock Text="Фамилия" Style="{StaticResource tbAvtorReg}"/>
+                            <TextBox Name="tboxSurname" Style="{StaticResource tboxReg}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
+                            <TextBlock Text="Имя" Style="{StaticResource tbAvtorReg}"/>
+                            <TextBox Name="tboxName" Style="{StaticResource tboxReg}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
+                            <TextBlock Text="Отчество" Style="{StaticResource tbAvtorReg}"/>
+                            <TextBox Name="tboxPatronymic" Style="{StaticResource tboxReg}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
+                            <TextBlock Text="Дата рождения" Style="{StaticResource tbAvtorReg}"/>
+                            <DatePicker Name="dpBirthdate" Style="{StaticResource dpReg}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
+                            <TextBlock Text="Пол" Style="{StaticResource tbAvtorReg}"/>
+                            <ComboBox Name="cbGender" Style="{StaticResource cbReg}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" Width="500">
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
+                            <TextBlock Text="Улица" Style="{StaticResource tbAvtorReg}"/>
+                            <TextBox Name="tboxStreet" Style="{StaticResource tboxReg}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
+                            <TextBlock Text="Строение" Style="{StaticResource tbAvtorReg}"/>
+                            <TextBox Name="tboxBuilding" Style="{StaticResource tboxReg}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
+                            <TextBlock Text="Телефон" Style="{StaticResource tbAvtorReg}"/>
+                            <TextBox Name="tboxPhone" Style="{StaticResource tboxReg}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
+                            <TextBlock Text="Логин" Style="{StaticResource tbAvtorReg}"/>
+                            <TextBox Name="tboxLogin" Style="{StaticResource tboxReg}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
+                            <TextBlock Text="Пароль" Style="{StaticResource tbAvtorReg}"/>
+                            <TextBox Name="tboxPassword" Style="{StaticResource tboxReg}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
-                <TextBlock Text="Имя" Style="{StaticResource tbReg}"/>
-                <TextBox Name="tboxName" Style="{StaticResource tboxReg}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
-                <TextBlock Text="Отчество" Style="{StaticResource tbReg}"/>
-                <TextBox Name="tboxPatronymic" Style="{StaticResource tboxReg}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
-                <TextBlock Text="Дата рождения" Style="{StaticResource tbReg}"/>
-                <DatePicker Name="dpBirthdate" Style="{StaticResource dpReg}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
-                <TextBlock Text="Пол" Style="{StaticResource tbReg}"/>
-                <ComboBox Name="cbGender" Style="{StaticResource cbReg}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
-                <TextBlock Text="Должность" Style="{StaticResource tbReg}"/>
-                <ComboBox Name="cbPositions" Style="{StaticResource cbReg}"/>
+            <StackPanel Style="{StaticResource spAvtorReg}" HorizontalAlignment="Center" Margin="0">
+                <TextBlock Text="Должность" Style="{StaticResource tbAvtorReg}" HorizontalAlignment="Center" Margin="10"/>
+                <ComboBox Name="cbPositions" Style="{StaticResource cbReg}" Width="300" HorizontalContentAlignment="Center"/>
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0">
-            <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
-                <TextBlock Text="Улица" Style="{StaticResource tbReg}"/>
-                <TextBox Name="tboxStreet" Style="{StaticResource tboxReg}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
-                <TextBlock Text="Строение" Style="{StaticResource tbReg}"/>
-                <TextBox Name="tboxBuilding" Style="{StaticResource tboxReg}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
-                <TextBlock Text="Телефон" Style="{StaticResource tbReg}"/>
-                <TextBox Name="tboxPhone" Style="{StaticResource tboxReg}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
-                <TextBlock Text="Логин" Style="{StaticResource tbReg}"/>
-                <TextBox Name="tboxLogin" Style="{StaticResource tboxReg}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
-                <TextBlock Text="Пароль" Style="{StaticResource tbReg}"/>
-                <TextBox Name="tboxPassword" Style="{StaticResource tboxReg}"/>
-            </StackPanel>
-        </StackPanel>
+
         <Button Name="btnBack" Content="Назад" Grid.Row="1" Template="{StaticResource btnTemplate}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Click="btnBack_Click"/>
         <Button Name="btnReg" Content="Зарегистрироваться" Grid.Row="1" Grid.Column="1" Template="{StaticResource btnTemplate}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Click="btnReg_Click"/>
     </Grid>

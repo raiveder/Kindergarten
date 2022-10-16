@@ -43,7 +43,7 @@ namespace Детский_сад
             }
             else if (!Regex.IsMatch(tboxPhone.Text, @"^\+7 9\d{2} \d{3}-\d{2}-\d{2}$"))
             {
-                MessageBox.Show("Номер телефона должен соответствовать следующей маске: \"+7 900 000-00-00\", где 0 - любая цифра", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Номер телефона должен соответствовать следующей маске: \"+7 9XX XXX-XX-XX\", где X - любая цифра", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if (checkPassword(tboxPassword.Text))
             {
