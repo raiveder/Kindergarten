@@ -26,9 +26,10 @@
             <TextBlock Grid.Row="0" Text="Радужный" Style="{StaticResource Header}" FontSize="40"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="2" HorizontalAlignment="Right">
+        <StackPanel Grid.Column="2" HorizontalAlignment="Right"  VerticalAlignment="Center">
             <Button Name="btnAvtor" Grid.Row="0" Grid.Column="2" Content="Авторизация" Template="{StaticResource btnTemplate}" Margin="10" Click="btnAvtor_Click"/>
             <Button Name="btnReg" Grid.Row="0" Grid.Column="3" Content="Регистрация" Template="{StaticResource btnTemplate}" Click="btnReg_Click"/>
+            <Button Name="btnMain" Grid.Row="0" Grid.Column="3" Content="Главная страница" Template="{StaticResource btnTemplate}" Margin="10"  Click="btnMain_Click"/>
         </StackPanel>
 
         <Frame Name="frm" Grid.Row="1" Grid.ColumnSpan="4" NavigationUIVisibility="Hidden"/>

@@ -106,10 +106,5 @@ namespace Детский_сад
             }
             return true;
         }
-
-        private void btnBack_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

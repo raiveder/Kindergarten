@@ -24,17 +24,28 @@ namespace Детский_сад
         {
             InitializeComponent();
             Base.mainFrame = frm;
+            Base.btnMain = btnMain;
+            Base.btnReg = btnReg;
+            Base.btnAvtor = btnAvtor;
+            Base.mainFrame.Navigate(new Main());
             Base.KE = new KindergartenEntities();
         }
 
         private void btnReg_Click(object sender, RoutedEventArgs e)
         {
             Base.mainFrame.Navigate(new Reg());
+            Base.leaveMain();
         }
 
         private void btnAvtor_Click(object sender, RoutedEventArgs e)
         {
             Base.mainFrame.Navigate(new Avtor());
+            Base.leaveMain();
+        }
+
+        private void btnMain_Click(object sender, RoutedEventArgs e)
+        {
+            Base.mainFrame.Navigate(new Main());
         }
     }
 }

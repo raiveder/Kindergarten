@@ -1,16 +1,14 @@
-﻿<Page x:Class="Детский_сад.AdminMenu"
+﻿<Page x:Class="Детский_сад.Main"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Детский_сад"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="1000"
-      Title="AdminMenu">
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Main">
 
     <Grid>
-        <Button Name="btnViewEmp" Content="Сотрудники" Template="{StaticResource btnTemplate}" Click="btnViewEmp_Click"/>
-        <Button Name="btnViewChild" Content="Дети" Template="{StaticResource btnTemplate}" Click="btnViewChild_Click"/>
-
+        <TextBlock Text="Главная страница"/>
     </Grid>
 </Page>

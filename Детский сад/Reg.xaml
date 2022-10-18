@@ -75,8 +75,6 @@
                 <ComboBox Name="cbPositions" Style="{StaticResource cbReg}" Width="300" HorizontalContentAlignment="Center"/>
             </StackPanel>
         </StackPanel>
-
-        <Button Name="btnBack" Content="Назад" Grid.Row="1" Template="{StaticResource btnTemplate}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Click="btnBack_Click"/>
-        <Button Name="btnReg" Content="Зарегистрироваться" Grid.Row="1" Grid.Column="1" Template="{StaticResource btnTemplate}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Click="btnReg_Click"/>
+        <Button Name="btnReg" Content="Зарегистрироваться" Grid.Row="1" Grid.ColumnSpan="2" Template="{StaticResource btnTemplate}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Click="btnReg_Click"/>
     </Grid>
 </Page>

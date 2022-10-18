@@ -16,23 +16,14 @@ using System.Windows.Shapes;
 namespace Детский_сад
 {
     /// <summary>
-    /// Логика взаимодействия для AdminMenu.xaml
+    /// Логика взаимодействия для Main.xaml
     /// </summary>
-    public partial class AdminMenu : Page
+    public partial class Main : Page
     {
-        public AdminMenu()
+        public Main()
         {
             InitializeComponent();
-        }
-
-        private void btnViewEmp_Click(object sender, RoutedEventArgs e)
-        {
-            Base.mainFrame.Navigate(new ViewEmployees());
-        }
-
-        private void btnViewChild_Click(object sender, RoutedEventArgs e)
-        {
-            Base.mainFrame.Navigate(new ViewChildren());
+            Base.tranzitionMain();
         }
     }
 }
