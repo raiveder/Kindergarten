@@ -9,25 +9,33 @@
       Title="ViewChildren">
 
     <Grid>
-        <ListView Name="lv" Margin="10">
+        <ListView Name="lv" Margin="10 10 10 65" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"></WrapPanel>
+                    <WrapPanel HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
 
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border CornerRadius="10" BorderThickness="1" BorderBrush="NavajoWhite">
-                        <Grid Width="200" Height="300">
+                        <Grid Width="200" Height="200">
                             <StackPanel>
                                 <TextBlock Text="{Binding Surname}"/>
                                 <TextBlock Text="{Binding Names}"/>
+                                <TextBlock Text="{Binding Patronymic}"/>
+                                <TextBlock Text="{Binding Birthdate, StringFormat={}{0:d MMMM yyy}}"/>
+                                <TextBlock Text="{Binding Genders.Gender}"/>
+                                <TextBlock Text="{Binding Groups.Code}"/> <!--Сделать свойство-->
+                                <TextBlock Text="{Binding Street}"/>
+                                <TextBlock Text="{Binding Building}"/>
                             </StackPanel>
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Button Name="btnBack" Content="Назад" Template="{StaticResource btnTemplate}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10" Click="btnBack_Click"/>
     </Grid>
 </Page>

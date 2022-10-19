@@ -13,11 +13,11 @@
             <StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
                     <TextBlock Text="Логин" Style="{StaticResource tbAvtorReg}"/>
-                    <TextBox x:Name="tboxLogin" Style="{StaticResource tboxAvtor}"/>
+                    <TextBox x:Name="tboxLogin" Text="admin" Style="{StaticResource tboxAvtor}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Style="{StaticResource spAvtorReg}">
                     <TextBlock Text="Пароль" Style="{StaticResource tbAvtorReg}"/>
-                    <PasswordBox x:Name="pbPassword" Style="{StaticResource pbAvtor}"/>
+                    <PasswordBox x:Name="pbPassword"  Password="admin" Style="{StaticResource pbAvtor}"/>
                 </StackPanel>
             </StackPanel>
             <Button Name="btnAvtor" Content="Войти" Template="{StaticResource btnTemplate}" Margin="20 0 10 0" Click="btnAvtor_Click"/>

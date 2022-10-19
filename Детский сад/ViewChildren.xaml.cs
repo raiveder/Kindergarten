@@ -25,5 +25,10 @@ namespace Детский_сад
             InitializeComponent();
             lv.ItemsSource = Base.KE.Children.ToList();
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Base.mainFrame.Navigate(new AdminMenu());
+        }
     }
 }

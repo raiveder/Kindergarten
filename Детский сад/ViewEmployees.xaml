@@ -30,29 +30,26 @@
         </StackPanel>
 
         <TextBlock Grid.Column="1" Text="Сортировка по полу" Style="{StaticResource tbViewEmp}"/>
-        <StackPanel Grid.Column="1" Grid.Row="1" Margin="10 0 10 0" VerticalAlignment="Center">
-            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <RadioButton Name="rbMale" Content="Мужской" Style="{StaticResource rbViewEmp}"/>
-                <RadioButton Name="rbFemale" Content="Женский" Style="{StaticResource rbViewEmp}"/>
-            </StackPanel>
-            <RadioButton Name="rbClear" Content="Отсутствует" Style="{StaticResource rbViewEmp}" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <RadioButton Name="rbMale" Content="Мужской" Style="{StaticResource rbViewEmp}" Click="rbMale_Click"/>
+            <RadioButton Name="rbFemale" Content="Женский" Style="{StaticResource rbViewEmp}" Click="rbFemale_Click"/>
         </StackPanel>
 
         <TextBlock Grid.Column="2" Text="Поиск" Style="{StaticResource tbViewEmp}"/>
         <StackPanel Grid.Column="2" Grid.Row="1" Margin="10 0 10 0" VerticalAlignment="Center">
             <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <RadioButton Name="rbFindSurname" Content="По фамилии" Style="{StaticResource rbViewEmp}"/>
-                <RadioButton Name="rbFindName" Content="По имени" Style="{StaticResource rbViewEmp}"/>
+                <RadioButton Name="rbFindSurname" Content="По фамилии" Style="{StaticResource rbViewEmp}" Click="rbFindSurname_Click"/>
+                <RadioButton Name="rbFindName" Content="По имени" Style="{StaticResource rbViewEmp}" Click="rbFindSurname_Click"/>
             </StackPanel>
-            <TextBox Name="tboxFind" Style="{StaticResource tboxReg}" HorizontalAlignment="Center"/>
+            <TextBox Name="tboxFind" Style="{StaticResource tboxReg}" HorizontalAlignment="Center" TextChanged="tboxFind_TextChanged"/>
         </StackPanel>
 
-        <DataGrid Name="dgv" AutoGenerateColumns="False" Grid.Row="2" Grid.ColumnSpan="3">
+        <DataGrid Name="dg" Grid.Row="2" Grid.ColumnSpan="3" Style="{StaticResource dgViewEmp}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Names}"/>
                 <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
-                <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthdate}"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthdate, StringFormat={}{0:dd.MM.yyyy}}"/>
                 <DataGridTextColumn Header="Пол" Binding="{Binding Genders.Gender}"/>
                 <DataGridTextColumn Header="Должность" Binding="{Binding Positions.Position}"/>
                 <DataGridTextColumn Header="Улица" Binding="{Binding Street}"/>
@@ -61,7 +58,8 @@
                 <DataGridTextColumn Header="Логин" Binding="{Binding Login_user}"/>
             </DataGrid.Columns>
         </DataGrid>
-
+        
+        <Button Name="btnBack" Grid.Row="3" Content="Назад" Template="{StaticResource btnTemplate}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10" Click="btnBack_Click"/>
         <Button Name="btnDefault" Grid.Row="3" Grid.Column="2" Content="Очистить фильтр" Template="{StaticResource btnTemplate}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Click="btnDefault_Click"/>
     </Grid>
 </Page>

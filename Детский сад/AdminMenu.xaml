@@ -5,12 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Детский_сад"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="1000"
+      d:DesignHeight="480" d:DesignWidth="1000"
       Title="AdminMenu">
 
     <Grid>
-        <Button Name="btnViewEmp" Content="Сотрудники" Template="{StaticResource btnTemplate}" Click="btnViewEmp_Click"/>
-        <Button Name="btnViewChild" Content="Дети" Template="{StaticResource btnTemplate}" Click="btnViewChild_Click"/>
-
+        <StackPanel VerticalAlignment="Center">
+            <Button Name="btnViewEmp" Content="Сотрудники" Template="{StaticResource btnTemplate}" Margin="5" Click="btnViewEmp_Click"/>
+            <Button Name="btnViewChild" Content="Дети" Template="{StaticResource btnTemplate}" Margin="5" Click="btnViewChild_Click"/>
+        </StackPanel>
     </Grid>
 </Page>
