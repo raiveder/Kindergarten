@@ -26,25 +26,28 @@ namespace Детский_сад
         {
             InitializeComponent();
             dg.ItemsSource = Base.KE.Employees.ToList();
-            tboxFind.Visibility = Visibility.Hidden;
+            tboxFind.Visibility = Visibility.Collapsed;
         }
-        private void btnSortAsc_Click(object sender, RoutedEventArgs e)
+
+        private void rbSortAsc_Click(object sender, RoutedEventArgs e)
         {
             dg.ItemsSource = Base.KE.Employees.OrderBy(x => x.Surname).ToList();
         }
 
-        private void btnSortDesc_Click(object sender, RoutedEventArgs e)
+        private void rbSortDesc_Click(object sender, RoutedEventArgs e)
         {
             dg.ItemsSource = Base.KE.Employees.OrderByDescending(x => x.Surname).ToList();
         }
 
         private void btnDefault_Click(object sender, RoutedEventArgs e)
         {
+            rbSortAsc.IsChecked = false;
+            rbSortDesc.IsChecked = false;
             rbMale.IsChecked = false;
             rbFemale.IsChecked = false;
             rbFindSurname.IsChecked = false;
             rbFindName.IsChecked = false;
-            tboxFind.Visibility = Visibility.Hidden;
+            tboxFind.Visibility = Visibility.Collapsed;
             dg.ItemsSource = Base.KE.Employees.ToList();
         }
 

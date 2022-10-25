@@ -57,8 +57,8 @@ Code INT NOT NULL
 CREATE TABLE Distributions
 (
 Id_distribution INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-Id_group INT FOREIGN KEY REFERENCES Groups (Id_group) NOT NULL,
-Id_type INT FOREIGN KEY REFERENCES Types_group (Id_type) NOT NULL
+Id_employee INT FOREIGN KEY REFERENCES Employees (Id_employee) NOT NULL,
+Id_group INT FOREIGN KEY REFERENCES Groups (Id_group) NOT NULL
 )
 
 

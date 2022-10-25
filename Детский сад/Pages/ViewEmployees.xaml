@@ -24,8 +24,8 @@
         <TextBlock Text="Сортировка по фамилии" Style="{StaticResource tbViewEmp}"/>
         <StackPanel Grid.Row="1" Margin="10 0 10 0" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Name="btnSortAsc" Content="По возрастанию" Template="{StaticResource btnTemplate}" Click="btnSortAsc_Click" Margin="0 0 20 0"/>
-                <Button Name="btnSortDesc" Content="По убыванию" Template="{StaticResource btnTemplate}" Click="btnSortDesc_Click"/>
+                <RadioButton Name="rbSortAsc" Content="По возрастанию" Style="{StaticResource rbViewEmp}" Click="rbSortAsc_Click"/>
+                <RadioButton Name="rbSortDesc" Content="По убыванию" Style="{StaticResource rbViewEmp}" Click="rbSortDesc_Click"/>
             </StackPanel>
         </StackPanel>
 

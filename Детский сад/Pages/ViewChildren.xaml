@@ -18,15 +18,15 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border CornerRadius="10" BorderThickness="1" BorderBrush="NavajoWhite">
+                    <Border CornerRadius="10" BorderThickness="1" BorderBrush="NavajoWhite" Background="{Binding ChildrenColor}">
                         <Grid Width="200" Height="200">
                             <StackPanel>
-                                <TextBlock Text="{Binding Surname}"/>
+                                <TextBlock Text="Фамилия: {Binding Surname}"/>
                                 <TextBlock Text="{Binding Names}"/>
                                 <TextBlock Text="{Binding Patronymic}"/>
                                 <TextBlock Text="{Binding Birthdate, StringFormat={}{0:d MMMM yyy}}"/>
                                 <TextBlock Text="{Binding Genders.Gender}"/>
-                                <TextBlock Text="{Binding Groups.Code}"/> <!--Сделать свойство-->
+                                <TextBlock Text="{Binding Groups.Name_group}"/> 
                                 <TextBlock Text="{Binding Street}"/>
                                 <TextBlock Text="{Binding Building}"/>
                             </StackPanel>
