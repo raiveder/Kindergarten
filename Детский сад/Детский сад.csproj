@@ -65,7 +65,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\Childrens.cs" />
+    <Compile Include="Classes\Children.cs" />
+    <Compile Include="Classes\Parents.cs" />
     <Compile Include="Classes\Groups.cs" />
     <Compile Include="Pages\AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>

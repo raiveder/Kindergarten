@@ -30,5 +30,32 @@ namespace Детский_сад
         {
             Base.mainFrame.Navigate(new AdminMenu());
         }
+
+        private void tbParents_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBlock tb = (TextBlock)sender;
+            int id = Convert.ToInt32(tb.Uid);
+
+            List<Kinships> list = Base.KE.Kinships.Where(x => x.Id_child == id).ToList();
+
+            string parents;
+            if (list.Count == 1)
+            {
+               parents = "Родитель: ";
+            }
+            else
+            {
+                parents = "Родители: ";
+            }
+            for (int i = 0; i < list.Count; i++)
+            {
+                parents += list[i].Parents.FullName;
+                parents += ", ";
+            }
+
+            parents = parents.Substring(0, parents.Length - 2);
+
+            tb.Text = parents;
+        }
     }
 }

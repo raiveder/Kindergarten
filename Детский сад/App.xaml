@@ -103,7 +103,17 @@
             <Setter Property="AutoGenerateColumns" Value="False"/>
             <Setter Property="CanUserResizeColumns" Value="False"/>
             <Setter Property="CanUserReorderColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="ColumnWidth" Value="*"/>
             <Setter Property="Background" Value="PapayaWhip"/>
+        </Style>
+
+
+
+        <Style x:Key="tbViewChild" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="FontFamily" Value="Arial Narrow"/>
+            <Setter Property="Margin" Value="10 5 0 0"/>
         </Style>
 
     </Application.Resources>
