@@ -29,13 +29,14 @@
         <Style x:Key="spAvtorReg" TargetType="StackPanel">
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="0 10 10 5"/>
+            <Setter Property="Margin" Value="0 10 0 5"/>
         </Style>
 
         <Style x:Key="tbAvtorReg" TargetType="TextBlock">
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="FontFamily" Value="Arial Narrow"/>
-            <Setter Property="Margin" Value="10 0 10 0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0 2 10 2"/>
         </Style>
 
         <Style x:Key="tboxAvtor" TargetType="TextBox">
@@ -69,7 +70,6 @@
             <Setter Property="FontFamily" Value="Arial Narrow"/>
             <Setter Property="MinWidth" Value="200"/>
             <Setter Property="Height" Value="30"/>
-            <Setter Property="MaxDropDownHeight" Value="90"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
         
@@ -99,7 +99,7 @@
         <Style x:Key="dgViewEmp" TargetType="DataGrid">
             <Setter Property="FontSize" Value="17"/>
             <Setter Property="FontFamily" Value="Arial Narrow"/>
-            <Setter Property="Margin" Value="10 0 10 0"/>
+            <Setter Property="Margin" Value="10 0 10 65"/>
             <Setter Property="AutoGenerateColumns" Value="False"/>
             <Setter Property="CanUserResizeColumns" Value="False"/>
             <Setter Property="CanUserReorderColumns" Value="False"/>

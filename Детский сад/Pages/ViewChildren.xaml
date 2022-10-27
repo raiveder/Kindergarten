@@ -18,8 +18,8 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border CornerRadius="10" BorderThickness="1" BorderBrush="Black"  Margin="5">
-                        <Grid Width="270" Height="350" Background="{Binding ChildrenColor}">
+                    <Border CornerRadius="10" BorderThickness="1" BorderBrush="Black"  Margin="5" Background="{Binding ChildrenColor}">
+                        <Grid Width="270" Height="350">
                             <StackPanel>
                                 <TextBlock Text="{Binding FullName}" Style="{StaticResource tbViewChild}" Margin="0 10 0 10" FontSize="20" HorizontalAlignment="Center"/>
                                 <TextBlock Style="{StaticResource tbViewChild}">
@@ -31,7 +31,7 @@
                                 <TextBlock Text="{Binding Genders.Gender, StringFormat=Пол: {0}}" Style="{StaticResource tbViewChild}"/>
                                 <TextBlock Text="{Binding Groups.Name_group, StringFormat=Группа: {0}}" Style="{StaticResource tbViewChild}"/>
                                 <TextBlock Text="{Binding Adress, StringFormat=Адрес: {0}}" Style="{StaticResource tbViewChild}"/>
-                                <TextBlock Name="tbParents" Uid="{Binding Id_child}" Style="{StaticResource tbViewChild}" Loaded="tbParents_Loaded"/>
+                                <TextBlock Name="tbParents" Uid="{Binding Id_child}" Style="{StaticResource tbViewChild}" TextWrapping="Wrap" Loaded="tbParents_Loaded"/>
                             </StackPanel>
                         </Grid>
                     </Border>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using System.Xml.Serialization;
 
 namespace Детский_сад
 {
@@ -15,7 +16,7 @@ namespace Детский_сад
             {
                 if (Birthdate.Month == DateTime.Today.Month && Birthdate.Day == DateTime.Today.Day)
                 {
-                    return Brushes.Red;
+                    return Brushes.PaleVioletRed;
                 }
                 else
                 {
@@ -30,30 +31,19 @@ namespace Детский_сад
             {
                 int years;
                 int months;
+                getAge(out years, out months);
 
-                DateTime dt = DateTime.Now;
-                if (Birthdate.Month >= dt.Month)
+                if (years == 0)
                 {
-                    if (Birthdate.Day >= dt.Day)
-                    {
-                        years = Birthdate.Year - dt.Year;
-                        months = Birthdate.Month - dt.Month;
-                    }
-                    years = Birthdate.Year - dt.Year - 1;
-                    months = 12 - Birthdate.Month - 1 + dt.Month; //years наоборот
-                }
-                else
-                {
-                    years = Birthdate.Year - dt.Year - 1;
-                    if (Birthdate.Day >= dt.Day)
-                    {
-                        months = 12 - Birthdate.Month - 1 + dt.Month;
-                    }
-                    months = 12 - Birthdate.Month - 2 + dt.Month;
+                    return months + " мес.";
                 }
 
+                if (months == 0)
+                {
+                    return years + " г.";
+                }
 
-                return "";
+                return years + " г. " + months + " мес.";
             }
         }
 
@@ -70,6 +60,48 @@ namespace Детский_сад
             get
             {
                 return "ул. " + Street + ", " + Building;
+            }
+        }
+
+        private void getAge(out int years, out int months)
+        {
+            DateTime dt = DateTime.Now;
+            if (Birthdate.Month > dt.Month)
+            {
+                years = dt.Year - Birthdate.Year - 1;
+                if (Birthdate.Day > dt.Day)
+                {
+                    months = 12 - Birthdate.Month + dt.Month - 1;
+                }
+                else
+                {
+                    months = 12 - Birthdate.Month + dt.Month;
+                }
+            }
+            else if (Birthdate.Month == dt.Month)
+            {
+                if (Birthdate.Day > dt.Day)
+                {
+                    years = dt.Year - Birthdate.Year - 1;
+                    months = 11;
+                }
+                else
+                {
+                    years = dt.Year - Birthdate.Year;
+                    months = Birthdate.Month - dt.Month;
+                }
+            }
+            else
+            {
+                years = dt.Year - Birthdate.Year;
+                if (Birthdate.Day > dt.Day)
+                {
+                    months = dt.Month - Birthdate.Month - 1;
+                }
+                else
+                {
+                    months = dt.Month - Birthdate.Month;
+                }
             }
         }
     }

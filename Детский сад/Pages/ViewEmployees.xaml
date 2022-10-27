@@ -10,10 +10,9 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.1*"/>
-            <RowDefinition Height="1.8*"/>
+            <RowDefinition Height="1*" MaxHeight="60"/>
+            <RowDefinition Height="1.5*" MaxHeight="90"/>
             <RowDefinition Height="6*"/>
-            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -46,20 +45,20 @@
 
         <DataGrid Name="dg" Grid.Row="2" Grid.ColumnSpan="3" Style="{StaticResource dgViewEmp}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
-                <DataGridTextColumn Header="Имя" Binding="{Binding Names}"/>
-                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
-                <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthdate, StringFormat={}{0:dd.MM.yyyy}}"/>
-                <DataGridTextColumn Header="Пол" Binding="{Binding Genders.Gender}"/>
-                <DataGridTextColumn Header="Должность" Binding="{Binding Positions.Position}"/>
-                <DataGridTextColumn Header="Улица" Binding="{Binding Street}"/>
-                <DataGridTextColumn Header="Строение" Binding="{Binding Building}"/>
-                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
-                <DataGridTextColumn Header="Логин" Binding="{Binding Login_user}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" MinWidth="100"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Names}" MinWidth="100"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" MinWidth="120"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthdate, StringFormat={}{0:dd.MM.yyyy}}" MinWidth="110"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding Genders.Gender}" MinWidth="60"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding Positions.Position}" MinWidth="200"/>
+                <DataGridTextColumn Header="Улица" Binding="{Binding Street}" MinWidth="150"/>
+                <DataGridTextColumn Header="Строение" Binding="{Binding Building}" MinWidth="60"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" MinWidth="120"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login_user}" MinWidth="120"/>
             </DataGrid.Columns>
         </DataGrid>
         
-        <Button Name="btnBack" Grid.Row="3" Content="Назад" Template="{StaticResource btnTemplate}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10" Click="btnBack_Click"/>
-        <Button Name="btnDefault" Grid.Row="3" Grid.Column="2" Content="Очистить фильтр" Template="{StaticResource btnTemplate}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Click="btnDefault_Click"/>
+        <Button Name="btnBack" Grid.Row="2" Content="Назад" Template="{StaticResource btnTemplate}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10" Click="btnBack_Click"/>
+        <Button Name="btnDefault" Grid.Row="2" Grid.Column="2" Content="Очистить фильтр" Template="{StaticResource btnTemplate}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Click="btnDefault_Click"/>
     </Grid>
 </Page>
