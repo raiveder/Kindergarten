@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -31,31 +32,40 @@ namespace Детский_сад
             Base.mainFrame.Navigate(new AdminMenu());
         }
 
-        private void tbParents_Loaded(object sender, RoutedEventArgs e)
+        private void tbMather_Loaded(object sender, RoutedEventArgs e)
         {
             TextBlock tb = (TextBlock)sender;
             int id = Convert.ToInt32(tb.Uid);
 
-            List<Kinships> list = Base.KE.Kinships.Where(x => x.Id_child == id).ToList();
+            Kinships kinships = Base.KE.Kinships.FirstOrDefault(x => x.Id_child == id && x.Parents.Id_gender == 2);
 
-            string parents;
-            if (list.Count == 1)
+            if (kinships != null)
             {
-               parents = "Родитель: ";
+                tb.Text = "Мать: ";
+                tb.Text += kinships.Parents.FullName;
             }
             else
             {
-                parents = "Родители: ";
+                tb.Visibility = Visibility.Collapsed;
             }
-            for (int i = 0; i < list.Count; i++)
+        }
+
+        private void tbVather_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBlock tb = (TextBlock)sender;
+            int id = Convert.ToInt32(tb.Uid);
+
+            Kinships kinships = Base.KE.Kinships.FirstOrDefault(x => x.Id_child == id && x.Parents.Id_gender == 1);
+
+            if (kinships != null)
             {
-                parents += list[i].Parents.FullName;
-                parents += ", ";
+                tb.Text = "Отец: ";
+                tb.Text += kinships.Parents.FullName;
             }
-
-            parents = parents.Substring(0, parents.Length - 2);
-
-            tb.Text = parents;
+            else
+            {
+                tb.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

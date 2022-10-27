@@ -31,7 +31,8 @@
                                 <TextBlock Text="{Binding Genders.Gender, StringFormat=Пол: {0}}" Style="{StaticResource tbViewChild}"/>
                                 <TextBlock Text="{Binding Groups.Name_group, StringFormat=Группа: {0}}" Style="{StaticResource tbViewChild}"/>
                                 <TextBlock Text="{Binding Adress, StringFormat=Адрес: {0}}" Style="{StaticResource tbViewChild}"/>
-                                <TextBlock Name="tbParents" Uid="{Binding Id_child}" Style="{StaticResource tbViewChild}" TextWrapping="Wrap" Loaded="tbParents_Loaded"/>
+                                <TextBlock Name="tbMather" Uid="{Binding Id_child}" Style="{StaticResource tbViewChild}" TextWrapping="Wrap" Loaded="tbMather_Loaded"/>
+                                <TextBlock Name="tbVather" Uid="{Binding Id_child}" Style="{StaticResource tbViewChild}" TextWrapping="Wrap" Loaded="tbVather_Loaded"/>
                             </StackPanel>
                         </Grid>
                     </Border>
