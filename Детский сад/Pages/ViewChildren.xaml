@@ -41,5 +41,6 @@
         </ListView>
 
         <Button Name="btnBack" Content="Назад" Template="{StaticResource btnTemplate}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10" Click="btnBack_Click"/>
+        <Button Name="btnAdd" Content="Добавить" Template="{StaticResource btnTemplate}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Click="btnAdd_Click"/>
     </Grid>
 </Page>

@@ -67,5 +67,10 @@ namespace Детский_сад
                 tb.Visibility = Visibility.Collapsed;
             }
         }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Base.mainFrame.Navigate(new AddChild());
+        }
     }
 }

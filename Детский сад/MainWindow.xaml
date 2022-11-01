@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Детский_сад"
         mc:Ignorable="d"
-        MinWidth="1000"
-        MinHeight="600"
-        Title="Детский сад" Width="1000" Height="600">
+        MinWidth="1250"
+        MinHeight="750"
+        Title="Детский сад" Width="1250" Height="750">
     <Grid Background="PapayaWhip">
         <Grid.RowDefinitions>
             <RowDefinition Height ="1*" MaxHeight="120"/>
