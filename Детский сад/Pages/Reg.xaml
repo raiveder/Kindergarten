@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       MaxHeight="480"
       MaxWidth="1000"
-      d:DesignHeight="480" d:DesignWidth="1000"
+      d:DesignHeight="630" d:DesignWidth="1250"
       Title="Reg">
 
     <Grid>
@@ -77,8 +77,3 @@
         <Button Name="btnReg" Content="Зарегистрироваться" Grid.Row="1" Grid.ColumnSpan="3" Template="{StaticResource btnTemplate}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Click="btnReg_Click"/>
     </Grid>
 </Page>
-
-<!--<StackPanel Style="{StaticResource spAvtorReg}" HorizontalAlignment="Center" Margin="0">
-    <TextBlock Text="Должность" Style="{StaticResource tbAvtorReg}" HorizontalAlignment="Center" Margin="10"/>
-    <ComboBox Name="cbPositions" Style="{StaticResource cbReg}" Width="300" HorizontalContentAlignment="Center"/>
-</StackPanel>-->

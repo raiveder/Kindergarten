@@ -10,8 +10,8 @@
         Title="Детский сад" Width="1250" Height="750">
     <Grid Background="PapayaWhip">
         <Grid.RowDefinitions>
-            <RowDefinition Height ="1*" MaxHeight="120"/>
-            <RowDefinition Height ="4*"/>
+            <RowDefinition Height ="120"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -32,6 +32,6 @@
             <Button Name="btnMain" Grid.Row="0" Grid.Column="3" Content="Выйти" Template="{StaticResource btnTemplate}" Margin="10"  Click="btnMain_Click"/>
         </StackPanel>
 
-        <Frame Name="frm" Grid.Row="1" Grid.ColumnSpan="4" NavigationUIVisibility="Hidden"/>
+        <Frame Name="frm" Grid.Row="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
