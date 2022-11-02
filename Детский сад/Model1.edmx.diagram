@@ -5,18 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="168b4f7da81447d481fb287b783cd3ff" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="ModelKindergartenEntities.Attendance" Width="1.5" PointX="8.25" PointY="7.5" />
-        <EntityTypeShape EntityType="ModelKindergartenEntities.Children" Width="1.5" PointX="6" PointY="8.125" />
-        <EntityTypeShape EntityType="ModelKindergartenEntities.Distributions" Width="1.5" PointX="5.25" PointY="5" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Attendance" Width="1.5" PointX="8.25" PointY="10.25" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Children" Width="1.5" PointX="6" PointY="8" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Distributions" Width="1.5" PointX="8.25" PointY="7" />
         <EntityTypeShape EntityType="ModelKindergartenEntities.Employees" Width="1.5" PointX="3" PointY="7.75" />
         <EntityTypeShape EntityType="ModelKindergartenEntities.Genders" Width="1.5" PointX="0.75" PointY="9" />
-        <EntityTypeShape EntityType="ModelKindergartenEntities.Groups" Width="1.5" PointX="3.75" PointY="12.875" />
-        <EntityTypeShape EntityType="ModelKindergartenEntities.Kinships" Width="1.5" PointX="8.25" PointY="14.125" />
-        <EntityTypeShape EntityType="ModelKindergartenEntities.Parents" Width="1.5" PointX="3" PointY="19" />
-        <EntityTypeShape EntityType="ModelKindergartenEntities.Positions" Width="1.5" PointX="0.75" PointY="16.25" />
-        <EntityTypeShape EntityType="ModelKindergartenEntities.Roles" Width="1.5" PointX="0.75" PointY="6" />
-        <EntityTypeShape EntityType="ModelKindergartenEntities.Sertificates" Width="1.5" PointX="8.25" PointY="10.25" />
-        <EntityTypeShape EntityType="ModelKindergartenEntities.Types_group" Width="1.5" PointX="1.5" PointY="13.125" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Groups" Width="1.5" PointX="3.75" PointY="4.875" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Kinships" Width="1.5" PointX="11.25" PointY="11.25" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Parents" Width="1.5" PointX="3" PointY="13.375" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Positions" Width="1.5" PointX="0.75" PointY="12" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Roles" Width="1.5" PointX="0.75" PointY="14.25" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Sertificates" Width="1.5" PointX="8.25" PointY="13" />
+        <EntityTypeShape EntityType="ModelKindergartenEntities.Types_group" Width="1.5" PointX="1.5" PointY="5.125" />
         <AssociationConnector Association="ModelKindergartenEntities.FK__Attendanc__Id_ch__5F7E2DAC" />
         <AssociationConnector Association="ModelKindergartenEntities.FK__Children__Id_gen__5BAD9CC8" />
         <AssociationConnector Association="ModelKindergartenEntities.FK__Children__Id_gro__5CA1C101" />

@@ -220,6 +220,13 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\Горшков АС.jpg" />
+    <Resource Include="images\Горшков МС.jpg" />
+    <Resource Include="images\Грязина АН.jpg" />
+    <Resource Include="images\Светкина ВС.jpg" />
+    <Resource Include="images\Свиридова НА.jpg" />
+    <Resource Include="images\Серухин ЕВ.jpg" />
+    <Resource Include="images\Светкина ЕС.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

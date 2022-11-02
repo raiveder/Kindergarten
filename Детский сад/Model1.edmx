@@ -27,6 +27,7 @@
           <Property Name="Id_group" Type="int" Nullable="false" />
           <Property Name="Street" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Building" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Distributions">
           <Key>
@@ -437,6 +438,7 @@
           <Property Name="Id_group" Type="Int32" Nullable="false" />
           <Property Name="Street" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Building" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Attendance" Relationship="ModelKindergartenEntities.FK__Attendanc__Id_ch__5F7E2DAC" FromRole="Children" ToRole="Attendance" />
           <NavigationProperty Name="Genders" Relationship="ModelKindergartenEntities.FK__Children__Id_gen__5BAD9CC8" FromRole="Children" ToRole="Genders" />
           <NavigationProperty Name="Groups" Relationship="ModelKindergartenEntities.FK__Children__Id_gro__5CA1C101" FromRole="Children" ToRole="Groups" />
@@ -713,7 +715,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -732,6 +734,7 @@
           <EntitySetMapping Name="Children">
             <EntityTypeMapping TypeName="ModelKindergartenEntities.Children">
               <MappingFragment StoreEntitySet="Children">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Building" ColumnName="Building" />
                 <ScalarProperty Name="Street" ColumnName="Street" />
                 <ScalarProperty Name="Id_group" ColumnName="Id_group" />

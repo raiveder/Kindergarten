@@ -95,8 +95,9 @@ Patronymic NVARCHAR(50) DEFAULT 'Отсутствует'  NOT NULL,
 Birthdate DATE  NOT NULL,
 Id_gender INT FOREIGN KEY REFERENCES Genders (Id_gender) NOT NULL,
 Id_group INT FOREIGN KEY REFERENCES Groups (Id_group) NOT NULL,
-Street NVARCHAR(50)  NOT NULL,
-Building NVARCHAR(10)  NOT NULL
+Street NVARCHAR(50) NOT NULL,
+Building NVARCHAR(10) NOT NULL,
+Photo NVARCHAR(100)
 )
 
 

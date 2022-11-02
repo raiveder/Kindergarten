@@ -65,17 +65,19 @@
 
                     <StackPanel VerticalAlignment="Center" Width="307.5">
                         <StackPanel HorizontalAlignment="Center">
-                            <StackPanel Style="{StaticResource spAvtorReg}">
-                                <TextBlock Text="Серия" Style="{StaticResource tbAvtorReg}"/>
-                                <TextBox Name="tboxSeries" Style="{StaticResource tboxReg}"/>
-                            </StackPanel>
-                            <StackPanel Style="{StaticResource spAvtorReg}">
-                                <TextBlock Text="Номер" Style="{StaticResource tbAvtorReg}"/>
-                                <TextBox Name="tboxNumber" Style="{StaticResource tboxReg}"/>
-                            </StackPanel>
-                            <StackPanel Style="{StaticResource spAvtorReg}">
-                                <TextBlock Text="Дата выдачи" Style="{StaticResource tbAvtorReg}"/>
-                                <DatePicker Name="dpDateIssue" Style="{StaticResource dpReg}"/>
+                            <StackPanel Name="spSize">
+                                <StackPanel Style="{StaticResource spAvtorReg}">
+                                    <TextBlock Text="Серия" Style="{StaticResource tbAvtorReg}"/>
+                                    <TextBox Name="tboxSeries" Style="{StaticResource tboxReg}"/>
+                                </StackPanel>
+                                <StackPanel Style="{StaticResource spAvtorReg}">
+                                    <TextBlock Text="Номер" Style="{StaticResource tbAvtorReg}"/>
+                                    <TextBox Name="tboxNumber" Style="{StaticResource tboxReg}"/>
+                                </StackPanel>
+                                <StackPanel Style="{StaticResource spAvtorReg}">
+                                    <TextBlock Text="Дата выдачи" Style="{StaticResource tbAvtorReg}"/>
+                                    <DatePicker Name="dpDateIssue" Style="{StaticResource dpReg}"/>
+                                </StackPanel>
                             </StackPanel>
                             <StackPanel Style="{StaticResource spAvtorReg}">
                                 <TextBlock Text="Кем выдан" Style="{StaticResource tbAvtorReg}"/>
@@ -86,21 +88,30 @@
 
                     <StackPanel VerticalAlignment="Center" Width="307.5">
                         <StackPanel HorizontalAlignment="Center">
-                            <TextBlock Text="Здесь будет добавление фото" Style="{StaticResource tbAvtorReg}"/>
+                            <Image Name="imgPhoto" Height="{Binding ActualHeight, ElementName=spSize}"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center">
+                            <Button Name="btnAddPhoto" Content="Добавить фото" Template="{StaticResource btnTemplate}" Margin="0 15 0 0" Click="btnAddPhoto_Click"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin=" 0 40 0 0">
-                    <StackPanel VerticalAlignment="Center" Width="615">
-                        <TextBlock Text="Мать" HorizontalAlignment="Center" FontFamily="Arial Narrow" FontSize="30"/>
+                    <StackPanel Width="615" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <CheckBox Name="chBMother" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                            <TextBlock Text="Мать" FontFamily="Arial Narrow" FontSize="30"/>
+                        </StackPanel>
                     </StackPanel>
 
-                    <StackPanel VerticalAlignment="Center" Width="615">
-                        <TextBlock Text="Отец" HorizontalAlignment="Center" FontFamily="Arial Narrow" FontSize="30"/>
+                    <StackPanel Width="615" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <CheckBox Name="chBFather" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                            <TextBlock Text="Отец" FontFamily="Arial Narrow" FontSize="30"/>
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
-                
+
                 <StackPanel Orientation="Horizontal">
                     <StackPanel VerticalAlignment="Center" Width="307.5">
                         <StackPanel HorizontalAlignment="Center">
@@ -176,7 +187,7 @@
                         <StackPanel Style="{StaticResource spAvtorReg}" HorizontalAlignment="Center">
                             <TextBlock Text="Дата рождения" Style="{StaticResource tbAvtorReg}" HorizontalAlignment="Center" Margin="2"/>
                             <DatePicker Name="dpMotherBirthdate" Style="{StaticResource dpReg}" HorizontalContentAlignment="Center" Background="White"/>
-                            </StackPanel>
+                        </StackPanel>
                     </StackPanel>
 
                     <StackPanel VerticalAlignment="Center" Width="615">
@@ -190,7 +201,7 @@
             </StackPanel>
         </ScrollViewer>
 
-        <Button Name="btnBack" Content="Назад" Grid.Row="1" Template="{StaticResource btnTemplate}" HorizontalAlignment="Left" Margin="10"/>
+        <Button Name="btnBack" Content="Назад" Grid.Row="1" Template="{StaticResource btnTemplate}" HorizontalAlignment="Left" Margin="10" Click="btnBack_Click"/>
         <Button Name="btnAdd" Content="Добавить"  Grid.Row="1" Grid.Column="1" Template="{StaticResource btnTemplate}" HorizontalAlignment="Right" Margin="10" Click="btnAdd_Click"/>
     </Grid>
 </Page>

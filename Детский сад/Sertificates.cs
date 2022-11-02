@@ -12,26 +12,26 @@
 namespace Детский_сад
 {
 
-    using System;
+using System;
     using System.Collections.Generic;
+    
+public partial class Sertificates
+{
 
-    public partial class Sertificates
-    {
+    public int Id_sertificate { get; set; }
 
-        public int Id_sertificate { get; set; }
+    public string Series { get; set; }
 
-        public string Series { get; set; }
+    public int Number { get; set; }
 
-        public int Number { get; set; }
+    public System.DateTime Date_issue { get; set; }
 
-        public System.DateTime Date_issue { get; set; }
-
-        public string Iddued { get; set; }
+    public string Iddued { get; set; }
 
 
 
-        public virtual Children Children { get; set; }
+    public virtual Children Children { get; set; }
 
-    }
+}
 
 }
