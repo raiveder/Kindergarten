@@ -88,7 +88,7 @@
 
                     <StackPanel VerticalAlignment="Center" Width="307.5">
                         <StackPanel HorizontalAlignment="Center">
-                            <Image Name="imgPhoto" Height="{Binding ActualHeight, ElementName=spSize}"/>
+                            <Image Name="imgPhoto" Height="{Binding ActualHeight, ElementName=spSize}" Width="{Binding ActualWidth, ElementName=spSize}"/>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Center">
                             <Button Name="btnAddPhoto" Content="Добавить фото" Template="{StaticResource btnTemplate}" Margin="0 15 0 0" Click="btnAddPhoto_Click"/>

@@ -55,6 +55,7 @@ namespace Детский_сад
                     Photo = path
                 };
                 Base.KE.Children.Add(child);
+                Base.KE.SaveChanges();
 
                 if (chBMother.IsChecked == true)
                 {
@@ -70,6 +71,7 @@ namespace Детский_сад
                         Phone = tboxMotherPhone.Text
                     };
                     Base.KE.Parents.Add(mother);
+                    Base.KE.SaveChanges();
 
                     Kinships kinships = new Kinships()
                     {
@@ -88,12 +90,13 @@ namespace Детский_сад
                         Names = tboxFatherName.Text,
                         Patronymic = tboxFatherPatronymic.Text,
                         Birthdate = dpFatherBirthdate.DisplayDate,
-                        Id_gender = 2,
+                        Id_gender = 1,
                         Street = tboxFatherStreet.Text,
                         Building = tboxFatherBuilding.Text,
                         Phone = tboxFatherPhone.Text
                     };
                     Base.KE.Parents.Add(father);
+                    Base.KE.SaveChanges();
 
                     Kinships kinships = new Kinships()
                     {
@@ -103,6 +106,8 @@ namespace Детский_сад
 
                     Base.KE.Kinships.Add(kinships);
                 }
+
+                Base.KE.SaveChanges();
             }
         }
 
@@ -189,8 +194,9 @@ namespace Детский_сад
                 else if (!Regex.IsMatch(tboxMotherPhone.Text, @"^\+7 9\d{2} \d{3}-\d{2}-\d{2}$"))
                 {
                     MessageBox.Show("Номер телефона должен соответствовать следующей маске: \"+7 9XX XXX-XX-XX\", где X - любая цифра", "Мать", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return false;
                 }
-                else if (dpFatherBirthdate.DisplayDate == DateTime.Today)
+                else if (dpMotherBirthdate.DisplayDate == DateTime.Today)
                 {
                     MessageBox.Show("Выберите дату рождения", "Мать", MessageBoxButton.OK, MessageBoxImage.Information);
                     return false;
@@ -232,8 +238,9 @@ namespace Детский_сад
                 else if (!Regex.IsMatch(tboxFatherPhone.Text, @"^\+7 9\d{2} \d{3}-\d{2}-\d{2}$"))
                 {
                     MessageBox.Show("Номер телефона должен соответствовать следующей маске: \"+7 9XX XXX-XX-XX\", где X - любая цифра", "Отец", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return false;
                 }
-                else if (dpMotherBirthdate.DisplayDate == DateTime.Today)
+                else if (dpFatherBirthdate.DisplayDate == DateTime.Today)
                 {
                     MessageBox.Show("Выберите дату рождения", "Отец", MessageBoxButton.OK, MessageBoxImage.Information);
                     return false;
@@ -253,7 +260,11 @@ namespace Детский_сад
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.ShowDialog();
             string[] array = ofd.FileName.Split('\\');
-            path = array[array.Length - 2] + "\\" + array[array.Length - 1];
+            if (array.Length != 1)
+            {
+                path = "\\" + array[array.Length - 2] + "\\" + array[array.Length - 1];
+                imgPhoto.Source = new BitmapImage(new Uri(path, UriKind.Relative));
+            }
         }
     }
 }

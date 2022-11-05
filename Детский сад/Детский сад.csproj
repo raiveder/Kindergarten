@@ -227,6 +227,7 @@
     <Resource Include="images\Свиридова НА.jpg" />
     <Resource Include="images\Серухин ЕВ.jpg" />
     <Resource Include="images\Светкина ЕС.jpg" />
+    <Resource Include="images\Соломина АЕ.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
