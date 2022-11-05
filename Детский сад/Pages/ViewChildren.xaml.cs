@@ -72,5 +72,29 @@ namespace Детский_сад
         {
             Base.mainFrame.Navigate(new AddChild());
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            int id = Convert.ToInt32(button.Uid);
+
+            Children child = Base.KE.Children.FirstOrDefault(x => x.Id_child == id);
+            List<Kinships> kinships = Base.KE.Kinships.Where(x => x.Id_child == id).ToList(); // Для удаления родителей
+
+            Base.KE.Children.Remove(child);
+            Base.KE.SaveChanges();
+
+            foreach (Kinships item in kinships)
+            {
+                if (Base.KE.Kinships.Where(x => x.Id_parent == item.Id_parent).ToList().Count == 0)
+                {
+                    Parents parent = Base.KE.Parents.FirstOrDefault(x => x.Id_parent == item.Id_parent);
+                    Base.KE.Parents.Remove(parent);
+                }
+            }
+
+            Base.KE.SaveChanges();
+            MessageBox.Show("Ребёнок успешно удалён", "Дети", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 }

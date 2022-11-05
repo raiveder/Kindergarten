@@ -227,7 +227,7 @@
     <Resource Include="images\Свиридова НА.jpg" />
     <Resource Include="images\Серухин ЕВ.jpg" />
     <Resource Include="images\Светкина ЕС.jpg" />
-    <Resource Include="images\Соломина АЕ.jpg" />
+    <Resource Include="images\Васнецова ЮЕ.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -239,6 +239,7 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Resource Include="Resources\Логотип.png" />
+    <Resource Include="Resources\Заглушка.png" />
     <Content Include="SQL-запросы\Заполнение таблиц.sql" />
     <Content Include="SQL-запросы\Создание таблиц.sql" />
     <Content Include="SQL-запросы\ER-диаграмма.png" />

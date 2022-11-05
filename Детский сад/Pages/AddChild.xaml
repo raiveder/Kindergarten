@@ -88,7 +88,7 @@
 
                     <StackPanel VerticalAlignment="Center" Width="307.5">
                         <StackPanel HorizontalAlignment="Center">
-                            <Image Name="imgPhoto" Height="{Binding ActualHeight, ElementName=spSize}" Width="{Binding ActualWidth, ElementName=spSize}"/>
+                            <Image Name="imgPhoto" Source="\Resources\Заглушка.png" Height="{Binding ActualHeight, ElementName=spSize}" Width="{Binding ActualWidth, ElementName=spSize}"/>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Center">
                             <Button Name="btnAddPhoto" Content="Добавить фото" Template="{StaticResource btnTemplate}" Margin="0 15 0 0" Click="btnAddPhoto_Click"/>
@@ -99,21 +99,21 @@
                 <StackPanel Orientation="Horizontal" Margin=" 0 40 0 0">
                     <StackPanel Width="615" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <CheckBox Name="chBMother" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                            <CheckBox Name="chBMother" VerticalAlignment="Center" Margin="0 0 5 0" Click="chBMother_Click"/>
                             <TextBlock Text="Мать" FontFamily="Arial Narrow" FontSize="30"/>
                         </StackPanel>
                     </StackPanel>
 
                     <StackPanel Width="615" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <CheckBox Name="chBFather" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                            <CheckBox Name="chBFather" VerticalAlignment="Center" Margin="0 0 5 0" Click="chBFather_Click"/>
                             <TextBlock Text="Отец" FontFamily="Arial Narrow" FontSize="30"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel VerticalAlignment="Center" Width="307.5">
+                    <StackPanel Name="spMother1" VerticalAlignment="Center" Width="307.5">
                         <StackPanel HorizontalAlignment="Center">
                             <StackPanel Style="{StaticResource spAvtorReg}">
                                 <TextBlock Text="Фамилия" Style="{StaticResource tbAvtorReg}"/>
@@ -130,7 +130,7 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <StackPanel VerticalAlignment="Center" Width="307.5">
+                    <StackPanel Name="spMother2" VerticalAlignment="Center" Width="307.5">
                         <StackPanel HorizontalAlignment="Center">
                             <StackPanel Style="{StaticResource spAvtorReg}">
                                 <TextBlock Text="Улица" Style="{StaticResource tbAvtorReg}"/>
@@ -147,7 +147,7 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <StackPanel VerticalAlignment="Center" Width="307.5">
+                    <StackPanel Name="spFather1" VerticalAlignment="Center" Width="307.5">
                         <StackPanel HorizontalAlignment="Center">
                             <StackPanel Style="{StaticResource spAvtorReg}">
                                 <TextBlock Text="Фамилия" Style="{StaticResource tbAvtorReg}"/>
@@ -164,7 +164,7 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <StackPanel VerticalAlignment="Center" Width="307.5">
+                    <StackPanel Name="spFather2" VerticalAlignment="Center" Width="307.5">
                         <StackPanel HorizontalAlignment="Center">
                             <StackPanel Style="{StaticResource spAvtorReg}">
                                 <TextBlock Text="Улица" Style="{StaticResource tbAvtorReg}"/>
@@ -183,14 +183,14 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel VerticalAlignment="Center" Width="615">
+                    <StackPanel Name="spMother3" VerticalAlignment="Center" Width="615">
                         <StackPanel Style="{StaticResource spAvtorReg}" HorizontalAlignment="Center">
                             <TextBlock Text="Дата рождения" Style="{StaticResource tbAvtorReg}" HorizontalAlignment="Center" Margin="2"/>
                             <DatePicker Name="dpMotherBirthdate" Style="{StaticResource dpReg}" HorizontalContentAlignment="Center" Background="White"/>
                         </StackPanel>
                     </StackPanel>
 
-                    <StackPanel VerticalAlignment="Center" Width="615">
+                    <StackPanel Name="spFather3" VerticalAlignment="Center" Width="615">
                         <StackPanel Style="{StaticResource spAvtorReg}" HorizontalAlignment="Center">
                             <TextBlock Text="Дата рождения" Style="{StaticResource tbAvtorReg}" HorizontalAlignment="Center" Margin="2"/>
                             <DatePicker Name="dpFatherBirthdate" Style="{StaticResource dpReg}" HorizontalContentAlignment="Center" Background="White"/>

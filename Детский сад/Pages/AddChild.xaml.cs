@@ -34,9 +34,16 @@ namespace Детский_сад
             cbGroup.ItemsSource = Base.KE.Groups.ToList();
             cbGroup.SelectedValuePath = "Id_group";
             cbGroup.DisplayMemberPath = "Name_group";
+
+            spMother1.Visibility = Visibility.Hidden;
+            spMother2.Visibility = Visibility.Hidden;
+            spMother3.Visibility = Visibility.Hidden;
+            spFather1.Visibility = Visibility.Hidden;
+            spFather2.Visibility = Visibility.Hidden;
+            spFather3.Visibility = Visibility.Hidden;
         }
 
-        string path = "Resources\\Заглушка.png";
+        string path = "\\Resources\\Заглушка.png";
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -108,6 +115,7 @@ namespace Детский_сад
                 }
 
                 Base.KE.SaveChanges();
+                MessageBox.Show("Ребёнок успешно добавлен", "Ребёнок", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -264,6 +272,38 @@ namespace Детский_сад
             {
                 path = "\\" + array[array.Length - 2] + "\\" + array[array.Length - 1];
                 imgPhoto.Source = new BitmapImage(new Uri(path, UriKind.Relative));
+            }
+        }
+
+        private void chBMother_Click(object sender, RoutedEventArgs e)
+        {
+            if (chBMother.IsChecked == true)
+            {
+                spMother1.Visibility = Visibility.Visible;
+                spMother2.Visibility = Visibility.Visible;
+                spMother3.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                spMother1.Visibility = Visibility.Hidden;
+                spMother2.Visibility = Visibility.Hidden;
+                spMother3.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void chBFather_Click(object sender, RoutedEventArgs e)
+        {
+            if (chBFather.IsChecked == true)
+            {
+                spFather1.Visibility = Visibility.Visible;
+                spFather2.Visibility = Visibility.Visible;
+                spFather3.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                spFather1.Visibility = Visibility.Hidden;
+                spFather2.Visibility = Visibility.Hidden;
+                spFather3.Visibility = Visibility.Hidden;
             }
         }
     }

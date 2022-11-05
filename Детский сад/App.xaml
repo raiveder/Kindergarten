@@ -113,7 +113,7 @@
         <Style x:Key="tbViewChild" TargetType="TextBlock">
             <Setter Property="FontSize" Value="17"/>
             <Setter Property="FontFamily" Value="Arial Narrow"/>
-            <Setter Property="Margin" Value="10 5 0 0"/>
+            <Setter Property="Margin" Value="10 0 10 0"/>
         </Style>
 
     </Application.Resources>
