@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -79,7 +80,7 @@ namespace Детский_сад
             int id = Convert.ToInt32(button.Uid);
 
             Children child = Base.KE.Children.FirstOrDefault(x => x.Id_child == id);
-            List<Kinships> kinships = Base.KE.Kinships.Where(x => x.Id_child == id).ToList(); // Для удаления родителей
+            List<Kinships> kinships = Base.KE.Kinships.Where(x => x.Id_child == id).ToList();
 
             Base.KE.Children.Remove(child);
             Base.KE.SaveChanges();
@@ -95,6 +96,12 @@ namespace Детский_сад
 
             Base.KE.SaveChanges();
             MessageBox.Show("Ребёнок успешно удалён", "Дети", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void lv_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Children child = (Children)lv.SelectedItem;
+            Base.mainFrame.Navigate(new AddChild(Base.KE.Children.FirstOrDefault(x => x.Id_child == child.Id_child)));
         }
     }
 }

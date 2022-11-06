@@ -9,7 +9,7 @@
       Title="ViewChildren">
 
     <Grid>
-        <ListView Name="lv" Margin="0 0 0 65" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="PapayaWhip">
+        <ListView Name="lv" Margin="0 0 0 65" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="PapayaWhip" MouseDoubleClick="lv_MouseDoubleClick">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel HorizontalAlignment="Center"/>
@@ -18,7 +18,7 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border CornerRadius="10" BorderThickness="1" BorderBrush="Black"  Margin="5" Background="{Binding ChildrenColor}">
+                    <Border CornerRadius="10" BorderThickness="1" BorderBrush="Black"  Margin="5" Background="{Binding ChildrenColor}" Cursor="Hand">
                         <Grid Width="410">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="10 10 0 20">
