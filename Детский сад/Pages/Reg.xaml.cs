@@ -36,18 +36,9 @@ namespace Детский_сад
 
         private void btnReg_Click(object sender, RoutedEventArgs e)
         {
-            Employees emp = Base.KE.Employees.FirstOrDefault(x => x.Login_user == tboxLogin.Text);
-            if (emp != null)
+            if (checkData())
             {
-                MessageBox.Show("Пользователь с таким логином уже зарегистрирован", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else if (!Regex.IsMatch(tboxPhone.Text, @"^\+7 9\d{2} \d{3}-\d{2}-\d{2}$"))
-            {
-                MessageBox.Show("Номер телефона должен соответствовать следующей маске: \"+7 9XX XXX-XX-XX\", где X - любая цифра", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else if (checkPassword(tboxPassword.Text))
-            {
-                emp = new Employees()
+                Employees emp = new Employees()
                 {
                     Surname = tboxSurname.Text,
                     Names = tboxName.Text,
@@ -75,6 +66,71 @@ namespace Детский_сад
                     MessageBox.Show("Возникла ошибка! Данные не были занесены в базу", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
+        }
+
+        private bool checkData()
+        {
+            Employees emp = Base.KE.Employees.FirstOrDefault(x => x.Login_user == tboxLogin.Text);
+
+            if (!Regex.IsMatch(tboxSurname.Text, @"^[А-Я][а-я]+$"))
+            {
+                MessageBox.Show("Фамилия должна начинаться с заглавной буквы и содержать только русские буквы", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            else if (!Regex.IsMatch(tboxName.Text, @"^[А-Я][а-я]+$"))
+            {
+                MessageBox.Show("Имя должно начинаться с заглавной буквы и содержать только русские буквы", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            else if (!Regex.IsMatch(tboxPatronymic.Text, @"^[А-Я][а-я]+$"))
+            {
+                MessageBox.Show("Отчество должно начинаться с заглавной буквы и содержать только русские буквы", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            else if (dpBirthdate.DisplayDate == DateTime.Today)
+            {
+                MessageBox.Show("Выберите дату рождения", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            else if (cbGender.SelectedIndex == -1)
+            {
+                MessageBox.Show("Выберите пол", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            else if (cbPositions.SelectedIndex == -1)
+            {
+                MessageBox.Show("Выберите должность", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            else if (!Regex.IsMatch(tboxStreet.Text, @"^[А-Я][а-я]+$"))
+            {
+                MessageBox.Show("Улица должна начинаться с заглавной буквы и содержать только русские буквы", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            else if (tboxBuilding.Text.Length == 0)
+            {
+                MessageBox.Show("Введите строение", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            else if (!Regex.IsMatch(tboxPhone.Text, @"^\+7 9\d{2} \d{3}-\d{2}-\d{2}$"))
+            {
+                MessageBox.Show("Номер телефона должен соответствовать следующей маске: \"+7 9XX XXX-XX-XX\", где X - любая цифра", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            else if (tboxLogin.Text.Length == 0)
+            {
+                MessageBox.Show("Введите логин", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (emp != null)
+            {
+                MessageBox.Show("Пользователь с таким логином уже зарегистрирован", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (!checkPassword(tboxPassword.Text))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private bool checkPassword(string s)

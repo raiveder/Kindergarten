@@ -21,7 +21,7 @@
         <ScrollViewer Grid.ColumnSpan="2">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel VerticalAlignment="Center" Width="307.5">
+                    <StackPanel VerticalAlignment="Center" Width="416.6">
                         <StackPanel HorizontalAlignment="Center">
                             <StackPanel Style="{StaticResource spAvtorReg}">
                                 <TextBlock Text="Фамилия" Style="{StaticResource tbAvtorReg}"/>
@@ -42,19 +42,21 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <StackPanel VerticalAlignment="Center" Width="307.5">
+                    <StackPanel VerticalAlignment="Center" Width="416.6">
                         <StackPanel HorizontalAlignment="Center">
-                            <StackPanel Style="{StaticResource spAvtorReg}">
-                                <TextBlock Text="Группа" Style="{StaticResource tbAvtorReg}"/>
-                                <ComboBox Name="cbGroup" Style="{StaticResource cbReg}"/>
-                            </StackPanel>
-                            <StackPanel Style="{StaticResource spAvtorReg}">
-                                <TextBlock Text="Пол" Style="{StaticResource tbAvtorReg}"/>
-                                <ComboBox Name="cbGender" Style="{StaticResource cbReg}"/>
-                            </StackPanel>
-                            <StackPanel Style="{StaticResource spAvtorReg}">
-                                <TextBlock Text="Улица" Style="{StaticResource tbAvtorReg}"/>
-                                <TextBox Name="tboxStreet" Style="{StaticResource tboxReg}"/>
+                            <StackPanel Name="spSize">
+                                <StackPanel Style="{StaticResource spAvtorReg}">
+                                    <TextBlock Text="Группа" Style="{StaticResource tbAvtorReg}"/>
+                                    <ComboBox Name="cbGroup" Style="{StaticResource cbReg}"/>
+                                </StackPanel>
+                                <StackPanel Style="{StaticResource spAvtorReg}">
+                                    <TextBlock Text="Пол" Style="{StaticResource tbAvtorReg}"/>
+                                    <ComboBox Name="cbGender" Style="{StaticResource cbReg}"/>
+                                </StackPanel>
+                                <StackPanel Style="{StaticResource spAvtorReg}">
+                                    <TextBlock Text="Улица" Style="{StaticResource tbAvtorReg}"/>
+                                    <TextBox Name="tboxStreet" Style="{StaticResource tboxReg}"/>
+                                </StackPanel>
                             </StackPanel>
                             <StackPanel Style="{StaticResource spAvtorReg}">
                                 <TextBlock Text="Строение" Style="{StaticResource tbAvtorReg}"/>
@@ -63,30 +65,7 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <StackPanel VerticalAlignment="Center" Width="307.5">
-                        <StackPanel HorizontalAlignment="Center">
-                            <StackPanel Name="spSize">
-                                <StackPanel Style="{StaticResource spAvtorReg}">
-                                    <TextBlock Text="Серия" Style="{StaticResource tbAvtorReg}"/>
-                                    <TextBox Name="tboxSeries" Style="{StaticResource tboxReg}"/>
-                                </StackPanel>
-                                <StackPanel Style="{StaticResource spAvtorReg}">
-                                    <TextBlock Text="Номер" Style="{StaticResource tbAvtorReg}"/>
-                                    <TextBox Name="tboxNumber" Style="{StaticResource tboxReg}"/>
-                                </StackPanel>
-                                <StackPanel Style="{StaticResource spAvtorReg}">
-                                    <TextBlock Text="Дата выдачи" Style="{StaticResource tbAvtorReg}"/>
-                                    <DatePicker Name="dpDateIssue" Style="{StaticResource dpReg}"/>
-                                </StackPanel>
-                            </StackPanel>
-                            <StackPanel Style="{StaticResource spAvtorReg}">
-                                <TextBlock Text="Кем выдан" Style="{StaticResource tbAvtorReg}"/>
-                                <TextBox Name="tboxIddued" Style="{StaticResource tboxReg}"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </StackPanel>
-
-                    <StackPanel VerticalAlignment="Center" Width="307.5">
+                    <StackPanel VerticalAlignment="Center" Width="416.7">
                         <StackPanel HorizontalAlignment="Center">
                             <Image Name="imgPhoto" Source="\Resources\Заглушка.png" Height="{Binding ActualHeight, ElementName=spSize}" Width="{Binding ActualWidth, ElementName=spSize}"/>
                         </StackPanel>
@@ -96,7 +75,30 @@
                     </StackPanel>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin=" 0 40 0 0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin=" 0 40 0 5">
+                    <TextBlock Text="Свидетельство о рождении" FontFamily="Arial Narrow" FontSize="30"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin=" 0 5 0 40">
+                    <StackPanel Margin="30 0 30 0">
+                        <TextBlock Text="Серия" Style="{StaticResource tbAvtorReg}"/>
+                        <TextBox Name="tboxSeries" Style="{StaticResource tboxReg}"/>
+                    </StackPanel>
+                    <StackPanel Margin="30 0 30 0">
+                        <TextBlock Text="Номер" Style="{StaticResource tbAvtorReg}"/>
+                        <TextBox Name="tboxNumber" Style="{StaticResource tboxReg}"/>
+                    </StackPanel>
+                    <StackPanel Margin="30 0 30 0">
+                        <TextBlock Text="Дата выдачи" Style="{StaticResource tbAvtorReg}"/>
+                        <DatePicker Name="dpDateIssue" Style="{StaticResource dpReg}"/>
+                    </StackPanel>
+                    <StackPanel Margin="30 0 30 0">
+                        <TextBlock Text="Кем выдано" Style="{StaticResource tbAvtorReg}"/>
+                        <TextBox Name="tboxIddued" Style="{StaticResource tboxReg}" Width="400"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
                     <StackPanel Width="615" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <CheckBox Name="chBMother" VerticalAlignment="Center" Margin="0 0 5 0" Click="chBMother_Click"/>
