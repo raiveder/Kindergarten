@@ -131,6 +131,12 @@ namespace Детский_сад
 
             dpBirthdate.DisplayDateStart = new DateTime(DateTime.Now.Year - 8, 1, 1);
             dpBirthdate.DisplayDateEnd = DateTime.Now;
+
+            dpMotherBirthdate.DisplayDateStart = new DateTime(DateTime.Now.Year - 60, 1, 1);
+            dpMotherBirthdate.DisplayDateEnd = new DateTime(DateTime.Now.Year - 16, DateTime.Now.Month, DateTime.Now.Day);
+
+            dpFatherBirthdate.DisplayDateStart = dpMotherBirthdate.DisplayDateStart;
+            dpFatherBirthdate.DisplayDateEnd = dpMotherBirthdate.DisplayDateEnd;
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -146,24 +152,24 @@ namespace Детский_сад
                 Child.Surname = tboxSurname.Text;
                 Child.Names = tboxName.Text;
                 Child.Patronymic = tboxPatronymic.Text;
-                Child.Birthdate = dpBirthdate.DisplayDate;
+                Child.Birthdate = dpBirthdate.SelectedDate.Value;
                 Child.Id_gender = cbGender.SelectedIndex + 1;
                 Child.Id_group = cbGroup.SelectedIndex + 1;
                 Child.Street = tboxStreet.Text;
                 Child.Building = tboxBuilding.Text;
                 Child.Photo = Path;
 
-                Sertificate.Id_sertificate = Child.Id_child;
-                Sertificate.Series = tboxSeries.Text;
-                Sertificate.Number = Convert.ToInt32(tboxNumber.Text);
-                Sertificate.Date_issue = dpDateIssue.DisplayDate;
-                Sertificate.Iddued = tboxIddued.Text;
-
                 if (FlagCreate)
                 {
                     Base.KE.Children.Add(Child);
                 }
                 Base.KE.SaveChanges();
+
+                Sertificate.Id_sertificate = Child.Id_child;
+                Sertificate.Series = tboxSeries.Text;
+                Sertificate.Number = Convert.ToInt32(tboxNumber.Text);
+                Sertificate.Date_issue = dpDateIssue.SelectedDate.Value;
+                Sertificate.Iddued = tboxIddued.Text;
 
                 if (FlagCreate)
                 {
@@ -186,7 +192,7 @@ namespace Детский_сад
                         Surname = tboxMotherSurname.Text,
                         Names = tboxMotherName.Text,
                         Patronymic = tboxMotherPatronymic.Text,
-                        Birthdate = dpMotherBirthdate.DisplayDate,
+                        Birthdate = dpMotherBirthdate.SelectedDate.Value,
                         Id_gender = 2,
                         Street = tboxMotherStreet.Text,
                         Building = tboxMotherBuilding.Text,
@@ -216,7 +222,7 @@ namespace Детский_сад
                         Surname = tboxFatherSurname.Text,
                         Names = tboxFatherName.Text,
                         Patronymic = tboxFatherPatronymic.Text,
-                        Birthdate = dpFatherBirthdate.DisplayDate,
+                        Birthdate = dpFatherBirthdate.SelectedDate.Value,
                         Id_gender = 1,
                         Street = tboxFatherStreet.Text,
                         Building = tboxFatherBuilding.Text,
@@ -240,7 +246,7 @@ namespace Детский_сад
                 }
 
                 Base.KE.SaveChanges();
-                
+
                 if (FlagCreate)
                 {
                     MessageBox.Show("Ребёнок успешно добавлен", "Ребёнок", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -278,8 +284,10 @@ namespace Детский_сад
                 {
                     Base.KE.Parents.Remove(Base.KE.Parents.FirstOrDefault(x => x.Id_parent == item.Id_parent));
                 }
-
-                Base.KE.Kinships.Remove(item);
+                else
+                {
+                    Base.KE.Kinships.Remove(item);
+                }
             }
 
             Base.KE.SaveChanges();
@@ -302,7 +310,7 @@ namespace Детский_сад
                 MessageBox.Show("Отчество должно начинаться с заглавной буквы и содержать только русские буквы", "Ребёнок", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
-            else if (dpBirthdate.DisplayDate == DateTime.Today)
+            else if (dpBirthdate.SelectedDate.Value == DateTime.Today)
             {
                 MessageBox.Show("Выберите дату рождения", "Ребёнок", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
@@ -343,7 +351,7 @@ namespace Детский_сад
                 MessageBox.Show("Номер должен состоять из 6 цифр", "Свидетельство о рождении", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
-            else if (dpDateIssue.DisplayDate == DateTime.Today)
+            else if (dpDateIssue.SelectedDate.Value == DateTime.Today)
             {
                 MessageBox.Show("Выберите дату выдачи свидетельства", "Свидетельство о рождении", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
@@ -391,7 +399,7 @@ namespace Детский_сад
                     MessageBox.Show("Номер телефона должен соответствовать следующей маске: \"+7 9XX XXX-XX-XX\", где X - любая цифра", "Мать", MessageBoxButton.OK, MessageBoxImage.Information);
                     return false;
                 }
-                else if (dpMotherBirthdate.DisplayDate == DateTime.Today)
+                else if (dpMotherBirthdate.SelectedDate.Value == DateTime.Today)
                 {
                     MessageBox.Show("Выберите дату рождения", "Мать", MessageBoxButton.OK, MessageBoxImage.Information);
                     return false;
@@ -435,7 +443,7 @@ namespace Детский_сад
                     MessageBox.Show("Номер телефона должен соответствовать следующей маске: \"+7 9XX XXX-XX-XX\", где X - любая цифра", "Отец", MessageBoxButton.OK, MessageBoxImage.Information);
                     return false;
                 }
-                else if (dpFatherBirthdate.DisplayDate == DateTime.Today)
+                else if (dpFatherBirthdate.SelectedDate.Value == DateTime.Today)
                 {
                     MessageBox.Show("Выберите дату рождения", "Отец", MessageBoxButton.OK, MessageBoxImage.Information);
                     return false;
@@ -492,6 +500,12 @@ namespace Детский_сад
                 spFather2.Visibility = Visibility.Hidden;
                 spFather3.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void btnDefaultPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            Path = "\\Resources\\Заглушка.png";
+            imgPhoto.Source = new BitmapImage(new Uri(Path, UriKind.Relative));
         }
     }
 }

@@ -32,6 +32,9 @@ namespace Детский_сад
             cbPositions.ItemsSource = Base.KE.Positions.ToList();
             cbPositions.SelectedValuePath = "Id_position";
             cbPositions.DisplayMemberPath = "Position";
+
+            dpBirthdate.DisplayDateStart = new DateTime(DateTime.Now.Year - 70, 1, 1);
+            dpBirthdate.DisplayDateEnd = new DateTime(DateTime.Now.Year - 16, DateTime.Now.Month, DateTime.Now.Day);
         }
 
         private void btnReg_Click(object sender, RoutedEventArgs e)
@@ -43,7 +46,7 @@ namespace Детский_сад
                     Surname = tboxSurname.Text,
                     Names = tboxName.Text,
                     Patronymic = tboxPatronymic.Text,
-                    Birthdate = dpBirthdate.DisplayDate,
+                    Birthdate = dpBirthdate.SelectedDate.Value,
                     Id_gender = cbGender.SelectedIndex + 1,
                     Id_position = cbPositions.SelectedIndex + 1,
                     Street = tboxStreet.Text,
@@ -87,7 +90,7 @@ namespace Детский_сад
                 MessageBox.Show("Отчество должно начинаться с заглавной буквы и содержать только русские буквы", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
-            else if (dpBirthdate.DisplayDate == DateTime.Today)
+            else if (dpBirthdate.SelectedDate.Value == DateTime.Today)
             {
                 MessageBox.Show("Выберите дату рождения", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;

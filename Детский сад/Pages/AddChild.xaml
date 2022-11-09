@@ -69,8 +69,10 @@
                         <StackPanel HorizontalAlignment="Center">
                             <Image Name="imgPhoto" Source="\Resources\Заглушка.png" Height="{Binding ActualHeight, ElementName=spSize}" Width="{Binding ActualWidth, ElementName=spSize}"/>
                         </StackPanel>
-                        <StackPanel HorizontalAlignment="Center">
-                            <Button Name="btnAddPhoto" Content="Добавить фото" Template="{StaticResource btnTemplate}" Margin="0 15 0 0" Click="btnAddPhoto_Click"/>
+                        
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <Button Name="btnAddPhoto" Content="Добавить фото" Template="{StaticResource btnTemplate}" Margin="0 15 15 0" Click="btnAddPhoto_Click"/>
+                            <Button Name="btnDefaultPhoto" Content="По умолчанию" Template="{StaticResource btnTemplate}" Margin="15 15 0 0" Click="btnDefaultPhoto_Click"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>

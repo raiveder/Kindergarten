@@ -138,9 +138,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Children__Id_gen__5BAD9CC8">
-          <End Role="Genders" Type="Self.Genders" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
           <End Role="Children" Type="Self.Children" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Genders">
@@ -194,9 +192,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Employees__Id_ge__1E6F845E">
-          <End Role="Genders" Type="Self.Genders" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
           <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Genders">
@@ -249,7 +245,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kinships__Id_chi__70A8B9AE">
+        <Association Name="FK__Kinships__Id_chi__6225902D">
           <End Role="Children" Type="Self.Children" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -264,9 +260,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Parents__Id_gend__6CD828CA">
-          <End Role="Genders" Type="Self.Genders" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
           <End Role="Parents" Type="Self.Parents" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Genders">
@@ -278,7 +272,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Kinships_Parents">
-          <End Role="Parents" Type="Self.Parents" Multiplicity="1" />
+          <End Role="Parents" Type="Self.Parents" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Kinships" Type="Self.Kinships" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Parents">
@@ -352,7 +348,7 @@
             <End Role="Types_group" EntitySet="Types_group" />
             <End Role="Groups" EntitySet="Groups" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kinships__Id_chi__70A8B9AE" Association="Self.FK__Kinships__Id_chi__70A8B9AE">
+          <AssociationSet Name="FK__Kinships__Id_chi__6225902D" Association="Self.FK__Kinships__Id_chi__6225902D">
             <End Role="Children" EntitySet="Children" />
             <End Role="Kinships" EntitySet="Kinships" />
           </AssociationSet>
@@ -398,7 +394,7 @@
             <End Role="Groups" EntitySet="Groups" />
             <End Role="Children" EntitySet="Children" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kinships__Id_chi__70A8B9AE" Association="ModelKindergartenEntities.FK__Kinships__Id_chi__70A8B9AE">
+          <AssociationSet Name="FK__Kinships__Id_chi__6225902D" Association="ModelKindergartenEntities.FK__Kinships__Id_chi__6225902D">
             <End Role="Children" EntitySet="Children" />
             <End Role="Kinships" EntitySet="Kinships" />
           </AssociationSet>
@@ -466,7 +462,7 @@
           <NavigationProperty Name="Attendance" Relationship="ModelKindergartenEntities.FK__Attendanc__Id_ch__5F7E2DAC" FromRole="Children" ToRole="Attendance" />
           <NavigationProperty Name="Genders" Relationship="ModelKindergartenEntities.FK__Children__Id_gen__5BAD9CC8" FromRole="Children" ToRole="Genders" />
           <NavigationProperty Name="Groups" Relationship="ModelKindergartenEntities.FK__Children__Id_gro__5CA1C101" FromRole="Children" ToRole="Groups" />
-          <NavigationProperty Name="Kinships" Relationship="ModelKindergartenEntities.FK__Kinships__Id_chi__70A8B9AE" FromRole="Children" ToRole="Kinships" />
+          <NavigationProperty Name="Kinships" Relationship="ModelKindergartenEntities.FK__Kinships__Id_chi__6225902D" FromRole="Children" ToRole="Kinships" />
           <NavigationProperty Name="Sertificates" Relationship="ModelKindergartenEntities.FK_Sertificates_Children" FromRole="Children" ToRole="Sertificates" />
         </EntityType>
         <EntityType Name="Distributions">
@@ -529,7 +525,7 @@
           <Property Name="Id_kinship" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id_parent" Type="Int32" Nullable="false" />
           <Property Name="Id_child" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Children" Relationship="ModelKindergartenEntities.FK__Kinships__Id_chi__70A8B9AE" FromRole="Kinships" ToRole="Children" />
+          <NavigationProperty Name="Children" Relationship="ModelKindergartenEntities.FK__Kinships__Id_chi__6225902D" FromRole="Kinships" ToRole="Children" />
           <NavigationProperty Name="Parents" Relationship="ModelKindergartenEntities.FK_Kinships_Parents" FromRole="Kinships" ToRole="Parents" />
         </EntityType>
         <EntityType Name="Parents">
@@ -598,9 +594,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Children__Id_gen__5BAD9CC8">
-          <End Type="ModelKindergartenEntities.Genders" Role="Genders" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Type="ModelKindergartenEntities.Genders" Role="Genders" Multiplicity="1" />
           <End Type="ModelKindergartenEntities.Children" Role="Children" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Genders">
@@ -625,7 +619,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kinships__Id_chi__70A8B9AE">
+        <Association Name="FK__Kinships__Id_chi__6225902D">
           <End Type="ModelKindergartenEntities.Children" Role="Children" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -682,9 +676,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Employees__Id_ge__1E6F845E">
-          <End Type="ModelKindergartenEntities.Genders" Role="Genders" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Type="ModelKindergartenEntities.Genders" Role="Genders" Multiplicity="1" />
           <End Type="ModelKindergartenEntities.Employees" Role="Employees" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Genders">
@@ -724,9 +716,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Parents__Id_gend__6CD828CA">
-          <End Type="ModelKindergartenEntities.Genders" Role="Genders" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Type="ModelKindergartenEntities.Genders" Role="Genders" Multiplicity="1" />
           <End Type="ModelKindergartenEntities.Parents" Role="Parents" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Genders">
@@ -752,7 +742,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Kinships_Parents">
-          <End Type="ModelKindergartenEntities.Parents" Role="Parents" Multiplicity="1" />
+          <End Type="ModelKindergartenEntities.Parents" Role="Parents" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="ModelKindergartenEntities.Kinships" Role="Kinships" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Parents">
