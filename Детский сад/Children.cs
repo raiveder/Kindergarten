@@ -26,6 +26,8 @@ public partial class Children
 
         this.Kinships = new HashSet<Kinships>();
 
+        this.Photos = new HashSet<Photos>();
+
     }
 
 
@@ -64,6 +66,10 @@ public partial class Children
     public virtual ICollection<Kinships> Kinships { get; set; }
 
     public virtual Sertificates Sertificates { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Photos> Photos { get; set; }
 
 }
 

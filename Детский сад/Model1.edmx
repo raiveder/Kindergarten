@@ -92,6 +92,16 @@
           <Property Name="Building" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="Id_photo" />
+          </Key>
+          <Property Name="Id_photo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_employee" Type="int" />
+          <Property Name="Id_children" Type="int" />
+          <Property Name="Byte_photo" Type="varbinary(max)" />
+          <Property Name="Path_photo" Type="nvarchar" MaxLength="200" />
+        </EntityType>
         <EntityType Name="Positions">
           <Key>
             <PropertyRef Name="Id_position" />
@@ -271,6 +281,34 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Photos__Id_child__038683F8">
+          <End Role="Children" Type="Self.Children" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Children">
+              <PropertyRef Name="Id_child" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="Id_children" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Photos__Id_emplo__02925FBF">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id_employee" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="Id_employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Kinships_Parents">
           <End Role="Parents" Type="Self.Parents" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -308,6 +346,7 @@
           <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kinships" EntityType="Self.Kinships" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Parents" EntityType="Self.Parents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sertificates" EntityType="Self.Sertificates" Schema="dbo" store:Type="Tables" />
@@ -355,6 +394,14 @@
           <AssociationSet Name="FK__Parents__Id_gend__6CD828CA" Association="Self.FK__Parents__Id_gend__6CD828CA">
             <End Role="Genders" EntitySet="Genders" />
             <End Role="Parents" EntitySet="Parents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Photos__Id_child__038683F8" Association="Self.FK__Photos__Id_child__038683F8">
+            <End Role="Children" EntitySet="Children" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Photos__Id_emplo__02925FBF" Association="Self.FK__Photos__Id_emplo__02925FBF">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Photos" EntitySet="Photos" />
           </AssociationSet>
           <AssociationSet Name="FK_Kinships_Parents" Association="Self.FK_Kinships_Parents">
             <End Role="Parents" EntitySet="Parents" />
@@ -434,6 +481,15 @@
             <End Role="Parents" EntitySet="Parents" />
             <End Role="Kinships" EntitySet="Kinships" />
           </AssociationSet>
+          <EntitySet Name="Photos" EntityType="ModelKindergartenEntities.Photos" />
+          <AssociationSet Name="FK__Photos__Id_child__038683F8" Association="ModelKindergartenEntities.FK__Photos__Id_child__038683F8">
+            <End Role="Children" EntitySet="Children" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Photos__Id_emplo__02925FBF" Association="ModelKindergartenEntities.FK__Photos__Id_emplo__02925FBF">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Attendance">
           <Key>
@@ -464,6 +520,7 @@
           <NavigationProperty Name="Groups" Relationship="ModelKindergartenEntities.FK__Children__Id_gro__5CA1C101" FromRole="Children" ToRole="Groups" />
           <NavigationProperty Name="Kinships" Relationship="ModelKindergartenEntities.FK__Kinships__Id_chi__6225902D" FromRole="Children" ToRole="Kinships" />
           <NavigationProperty Name="Sertificates" Relationship="ModelKindergartenEntities.FK_Sertificates_Children" FromRole="Children" ToRole="Sertificates" />
+          <NavigationProperty Name="Photos" Relationship="ModelKindergartenEntities.FK__Photos__Id_child__038683F8" FromRole="Children" ToRole="Photos" />
         </EntityType>
         <EntityType Name="Distributions">
           <Key>
@@ -496,6 +553,7 @@
           <NavigationProperty Name="Genders" Relationship="ModelKindergartenEntities.FK__Employees__Id_ge__1E6F845E" FromRole="Employees" ToRole="Genders" />
           <NavigationProperty Name="Positions" Relationship="ModelKindergartenEntities.FK__Employees__Id_po__1F63A897" FromRole="Employees" ToRole="Positions" />
           <NavigationProperty Name="Roles" Relationship="ModelKindergartenEntities.FK__Employees__Id_ro__2057CCD0" FromRole="Employees" ToRole="Roles" />
+          <NavigationProperty Name="Photos" Relationship="ModelKindergartenEntities.FK__Photos__Id_emplo__02925FBF" FromRole="Employees" ToRole="Photos" />
         </EntityType>
         <EntityType Name="Genders">
           <Key>
@@ -755,6 +813,46 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="Id_photo" />
+          </Key>
+          <Property Name="Id_photo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_employee" Type="Int32" />
+          <Property Name="Id_children" Type="Int32" />
+          <Property Name="Byte_photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Path_photo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Children" Relationship="ModelKindergartenEntities.FK__Photos__Id_child__038683F8" FromRole="Photos" ToRole="Children" />
+          <NavigationProperty Name="Employees" Relationship="ModelKindergartenEntities.FK__Photos__Id_emplo__02925FBF" FromRole="Photos" ToRole="Employees" />
+        </EntityType>
+        <Association Name="FK__Photos__Id_child__038683F8">
+          <End Type="ModelKindergartenEntities.Children" Role="Children" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ModelKindergartenEntities.Photos" Role="Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Children">
+              <PropertyRef Name="Id_child" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="Id_children" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Photos__Id_emplo__02925FBF">
+          <End Type="ModelKindergartenEntities.Employees" Role="Employees" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ModelKindergartenEntities.Photos" Role="Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id_employee" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="Id_employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -888,6 +986,17 @@
               <MappingFragment StoreEntitySet="Types_group">
                 <ScalarProperty Name="Type_group" ColumnName="Type_group" />
                 <ScalarProperty Name="Id_type" ColumnName="Id_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photos">
+            <EntityTypeMapping TypeName="ModelKindergartenEntities.Photos">
+              <MappingFragment StoreEntitySet="Photos">
+                <ScalarProperty Name="Path_photo" ColumnName="Path_photo" />
+                <ScalarProperty Name="Byte_photo" ColumnName="Byte_photo" />
+                <ScalarProperty Name="Id_children" ColumnName="Id_children" />
+                <ScalarProperty Name="Id_employee" ColumnName="Id_employee" />
+                <ScalarProperty Name="Id_photo" ColumnName="Id_photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

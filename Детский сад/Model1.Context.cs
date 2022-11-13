@@ -56,6 +56,8 @@ public partial class KindergartenEntities : DbContext
 
     public virtual DbSet<Types_group> Types_group { get; set; }
 
+    public virtual DbSet<Photos> Photos { get; set; }
+
 }
 
 }

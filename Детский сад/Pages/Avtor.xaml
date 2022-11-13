@@ -22,5 +22,10 @@
             </StackPanel>
             <Button Name="btnAvtor" Content="Войти" Template="{StaticResource btnTemplate}" Margin="20 0 10 0" Click="btnAvtor_Click"/>
         </StackPanel>
+        <TextBox Width="150" Height="200" VerticalAlignment="Bottom" TextWrapping="Wrap" AcceptsReturn="True">
+            zhilina zhilinaZYS@80
+            surikova surikovaSNV@86
+            grodina grodinaGMN@79
+        </TextBox>
     </Grid>
 </Page>

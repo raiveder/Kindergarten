@@ -24,6 +24,8 @@ public partial class Employees
 
         this.Distributions = new HashSet<Distributions>();
 
+        this.Photos = new HashSet<Photos>();
+
     }
 
 
@@ -64,6 +66,10 @@ public partial class Employees
     public virtual Positions Positions { get; set; }
 
     public virtual Roles Roles { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Photos> Photos { get; set; }
 
 }
 

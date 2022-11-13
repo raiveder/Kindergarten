@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Детский_сад"
         mc:Ignorable="d"
         MinWidth="1350"
-        MinHeight="850"
-        Title="Детский сад" Width="1350" Height="850">
+        MinHeight="750"
+        Title="Детский сад" Width="1350" Height="750">
     <Grid Background="PapayaWhip">
         <Grid.RowDefinitions>
             <RowDefinition Height ="120"/>

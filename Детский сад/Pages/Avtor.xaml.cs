@@ -40,9 +40,9 @@ namespace Детский_сад
             {
                 Base.mainFrame.Navigate(new AdminMenu());
             }
-            else
+            else if (emp.Id_role == 2)
             {
-                Base.mainFrame.Navigate(new Reg());
+                Base.mainFrame.Navigate(new Account(emp));
             }
         }
     }
