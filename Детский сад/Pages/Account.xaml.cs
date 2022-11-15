@@ -25,6 +25,8 @@ namespace Детский_сад
     public partial class Account : Page
     {
         Employees User;
+        List<Photos> ListPhoto;
+        int IdCurrentPhoto;
 
         public Account(Employees user)
         {
@@ -51,21 +53,25 @@ namespace Детский_сад
 
             tbGroups.Text = tbGroups.Text.Remove(tbGroups.Text.Length - 2, 2);
 
-            imgPhoto.Source = GetBitmapImage(user);
+            ListPhoto = Base.KE.Photos.Where(x => x.Id_employee == User.Id_employee).ToList();
+            IdCurrentPhoto = ListPhoto.Count - 1;
+            Photos photo;
+
+            if (IdCurrentPhoto != -1)
+            {
+                photo = ListPhoto[IdCurrentPhoto];
+            }
+            else
+            {
+                photo = null;
+            }
+
+            imgPhoto.Source = GetBitmapImage(photo);
             imgPhoto.Stretch = Stretch.Uniform;
         }
 
-
-        /// <summary>
-        /// Находит главное (последнее) фото пользователя в базе данных.
-        /// </summary>
-        /// <param name="user">Пользователь (объект класса Employees).</param>
-        /// <returns>Главное фото пользователя.</returns>
-        private BitmapImage GetBitmapImage(Employees user)
+        private BitmapImage GetBitmapImage(Photos photo)
         {
-            List<Photos> list = Base.KE.Photos.Where(x => x.Id_employee == user.Id_employee).ToList();
-            Photos photo = list.LastOrDefault(x => x.Id_employee == user.Id_employee);
-
             if (photo != null)
             {
                 byte[] array = photo.Byte_photo;
@@ -73,16 +79,16 @@ namespace Детский_сад
 
                 using (MemoryStream ms = new MemoryStream(array))
                 {
-                    image.BeginInit(); 
+                    image.BeginInit();
                     image.StreamSource = ms;
-                    image.CacheOption = BitmapCacheOption.OnLoad; 
+                    image.CacheOption = BitmapCacheOption.OnLoad;
                     image.EndInit();
                 }
 
                 return image;
             }
 
-            return null;
+            return new BitmapImage(new Uri("\\Resources\\Заглушка.png", UriKind.RelativeOrAbsolute));
         }
 
         private void btnAddPhoto_Click(object sender, RoutedEventArgs e)
@@ -94,16 +100,23 @@ namespace Детский_сад
 
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.ShowDialog();
-                string path = ofd.FileName;
-                System.Drawing.Image sdi = System.Drawing.Image.FromFile(path);
-                ImageConverter ic = new ImageConverter();
-                byte[] array = (byte[])ic.ConvertTo(sdi, typeof(byte[]));
-                photo.Byte_photo = array;
-                Base.KE.Photos.Add(photo);
-                Base.KE.SaveChanges();
-                MessageBox.Show("Фото успешно добавлено", "Личный кабинет", MessageBoxButton.OK, MessageBoxImage.Information);
-                Base.mainFrame.Navigate(new Account(User));
 
+                if (ofd.FileName != "")
+                {
+                    string path = ofd.FileName;
+
+                    System.Drawing.Image sdi = System.Drawing.Image.FromFile(path);
+                    ImageConverter ic = new ImageConverter();
+
+                    byte[] array = (byte[])ic.ConvertTo(sdi, typeof(byte[]));
+                    photo.Byte_photo = array;
+
+                    Base.KE.Photos.Add(photo);
+                    Base.KE.SaveChanges();
+
+                    MessageBox.Show("Фото успешно добавлено", "Личный кабинет", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Base.mainFrame.Navigate(new Account(User));
+                }
             }
             catch
             {
@@ -111,14 +124,84 @@ namespace Детский_сад
             }
         }
 
-        private void btnChangePhoto_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btnDelPhoto_Click(object sender, RoutedEventArgs e)
         {
+            Photos photo = ListPhoto[IdCurrentPhoto];
 
+            Base.KE.Photos.Remove(photo);
+            Base.KE.SaveChanges();
+
+            ListPhoto = Base.KE.Photos.Where(x => x.Id_employee == User.Id_employee).ToList();
+
+            IdCurrentPhoto--;
+
+            if (IdCurrentPhoto == -1)
+            {
+                photo = null;
+                btnBackPhoto.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                photo = ListPhoto[IdCurrentPhoto];
+            }
+            imgPhoto.Source = GetBitmapImage(photo);
+        }
+
+        private void btnChangePhoto_Click(object sender, RoutedEventArgs e)
+        {
+            if (btnChangePhoto.Content.ToString() == "Изменить")
+            {
+                btnChangePhoto.Content = "Сохранить";
+                if (IdCurrentPhoto != -1)
+                {
+                    btnBackPhoto.Visibility = Visibility.Visible;
+                }
+
+            }
+            else
+            {
+                btnChangePhoto.Content = "Изменить";
+                btnBackPhoto.Visibility = Visibility.Hidden;
+                btnNextPhoto.Visibility = Visibility.Hidden;
+
+                //Перезаписать фото
+            }
+        }
+
+        private void btnBackPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            IdCurrentPhoto--;
+            Photos photo = ListPhoto[IdCurrentPhoto];
+
+            if (photo != null)
+            {
+                imgPhoto.Source = GetBitmapImage(photo);
+            }
+
+            if (IdCurrentPhoto == 0)
+            {
+                btnBackPhoto.Visibility = Visibility.Hidden;
+            }
+
+            btnNextPhoto.Visibility = Visibility.Visible;
+        }
+
+        private void btnNextPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            IdCurrentPhoto++;
+            Photos photo = ListPhoto[IdCurrentPhoto];
+
+            if (photo != null)
+            {
+                imgPhoto.Source = GetBitmapImage(photo);
+            }
+
+            if (IdCurrentPhoto == ListPhoto.Count - 1)
+            {
+                btnNextPhoto.Visibility = Visibility.Hidden;
+            }
+
+            btnBackPhoto.Visibility = Visibility.Visible;
         }
     }
 }

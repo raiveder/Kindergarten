@@ -12,43 +12,42 @@
 namespace Детский_сад
 {
 
-using System;
+    using System;
     using System.Collections.Generic;
-    
-public partial class Genders
-{
 
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public Genders()
+    public partial class Genders
     {
 
-        this.Children = new HashSet<Children>();
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Genders()
+        {
 
-        this.Employees = new HashSet<Employees>();
+            this.Children = new HashSet<Children>();
 
-        this.Parents = new HashSet<Parents>();
+            this.Employees = new HashSet<Employees>();
+
+            this.Parents = new HashSet<Parents>();
+
+        }
+
+
+        public int Id_gender { get; set; }
+
+        public string Gender { get; set; }
+
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+        public virtual ICollection<Children> Children { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+        public virtual ICollection<Employees> Employees { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+        public virtual ICollection<Parents> Parents { get; set; }
 
     }
-
-
-    public int Id_gender { get; set; }
-
-    public string Gender { get; set; }
-
-
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<Children> Children { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<Employees> Employees { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<Parents> Parents { get; set; }
-
-}
 
 }
