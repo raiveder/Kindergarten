@@ -114,8 +114,8 @@ namespace Детский_сад
                     Base.KE.Photos.Add(photo);
                     Base.KE.SaveChanges();
 
-                    MessageBox.Show("Фото успешно добавлено", "Личный кабинет", MessageBoxButton.OK, MessageBoxImage.Information);
                     Base.mainFrame.Navigate(new Account(User));
+                    MessageBox.Show("Фото успешно добавлено", "Личный кабинет", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch
@@ -126,6 +126,12 @@ namespace Детский_сад
 
         private void btnDelPhoto_Click(object sender, RoutedEventArgs e)
         {
+            
+            if(IdCurrentPhoto == -1)
+            {
+                MessageBox.Show("Нельзя удалить стандартное изображение!", "Личный кабинет", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             Photos photo = ListPhoto[IdCurrentPhoto];
 
             Base.KE.Photos.Remove(photo);
@@ -142,6 +148,11 @@ namespace Детский_сад
             }
             else
             {
+                if (IdCurrentPhoto == 0)
+                {
+                    btnBackPhoto.Visibility = Visibility.Hidden;
+                }
+
                 photo = ListPhoto[IdCurrentPhoto];
             }
             imgPhoto.Source = GetBitmapImage(photo);
@@ -164,7 +175,23 @@ namespace Детский_сад
                 btnBackPhoto.Visibility = Visibility.Hidden;
                 btnNextPhoto.Visibility = Visibility.Hidden;
 
-                //Перезаписать фото
+                if (IdCurrentPhoto != -1)
+                {
+                    Photos photo = ListPhoto[IdCurrentPhoto];
+                    Photos newPhoto = new Photos()
+                    {
+                        Id_employee = photo.Id_employee,
+                        Id_children = photo.Id_children,
+                        Byte_photo = photo.Byte_photo,
+                        Path_photo = photo.Path_photo
+                    };
+                    Base.KE.Photos.Remove(photo);
+                    Base.KE.Photos.Add(newPhoto);
+                    Base.KE.SaveChanges();
+
+                    Base.mainFrame.Navigate(new Account(User));
+                }
+
             }
         }
 
@@ -202,6 +229,13 @@ namespace Детский_сад
             }
 
             btnBackPhoto.Visibility = Visibility.Visible;
+        }
+
+        private void btnChangePersonal_Click(object sender, RoutedEventArgs e)
+        {
+            AccountChangePersonal acp = new AccountChangePersonal(User);
+            acp.ShowDialog();
+            Base.mainFrame.Navigate(new Account(User));
         }
     }
 }

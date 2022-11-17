@@ -1,0 +1,58 @@
+﻿<Window x:Class="Детский_сад.AccountChangePersonal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Детский_сад"
+        mc:Ignorable="d"
+        Title="AccountChangePersonal" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="65"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.ColumnSpan="2" Text="Изменение персональных данных" Style="{StaticResource Header}"/>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Style="{StaticResource spAvtorReg}">
+                <TextBlock Text="Фамилия" Style="{StaticResource tbAvtorReg}"/>
+                <TextBox Name="tboxSurname" Style="{StaticResource tboxReg}"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource spAvtorReg}">
+                <TextBlock Text="Имя" Style="{StaticResource tbAvtorReg}"/>
+                <TextBox Name="tboxName" Style="{StaticResource tboxReg}"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource spAvtorReg}">
+                <TextBlock Text="Отчество" Style="{StaticResource tbAvtorReg}"/>
+                <TextBox Name="tboxPatronymic" Style="{StaticResource tboxReg}"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource spAvtorReg}">
+                <TextBlock Text="Дата рождения" Style="{StaticResource tbAvtorReg}"/>
+                <DatePicker Name="dpBirthdate" Style="{StaticResource dpReg}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Style="{StaticResource spAvtorReg}">
+                <TextBlock Text="Улица" Style="{StaticResource tbAvtorReg}"/>
+                <TextBox Name="tboxStreet" Style="{StaticResource tboxReg}"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource spAvtorReg}">
+                <TextBlock Text="Строение" Style="{StaticResource tbAvtorReg}"/>
+                <TextBox Name="tboxBuilding" Style="{StaticResource tboxReg}"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource spAvtorReg}">
+                <TextBlock Text="Телефон" Style="{StaticResource tbAvtorReg}"/>
+                <TextBox Name="tboxPhone" Style="{StaticResource tboxReg}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Button Name="btnSave" Content="Сохранить" Grid.Row="2" Grid.ColumnSpan="3" Template="{StaticResource btnTemplate}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Click="btnSave_Click"/>
+    </Grid>
+</Window>

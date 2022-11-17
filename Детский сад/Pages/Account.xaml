@@ -36,6 +36,7 @@
             <TextBlock Name="tbLogin" Text="Логин: " Style="{StaticResource tbAvtorReg}" Margin="5"/>
             <TextBlock Name="tbRole" Text="Роль: " Style="{StaticResource tbAvtorReg}" Margin="5"/>
             <TextBlock Name="tbGroups" Text="Группы: " Style="{StaticResource tbAvtorReg}" Margin="5 10 5 10"/>
+            <Button Name="btnChangePersonal" Content="Изменить данные" Template="{StaticResource btnTemplate}" Margin="0 30 0 0" Click="btnChangePersonal_Click"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
