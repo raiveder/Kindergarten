@@ -59,7 +59,6 @@ namespace Детский_сад
 
                 try
                 {
-
                     Base.KE.Employees.Add(emp);
                     Base.KE.SaveChanges();
                     MessageBox.Show("Пользователь успешно зарегистрирован", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -123,12 +122,14 @@ namespace Детский_сад
             else if (tboxLogin.Text.Length == 0)
             {
                 MessageBox.Show("Введите логин", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
             }
             else if (emp != null)
             {
                 MessageBox.Show("Пользователь с таким логином уже зарегистрирован", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
             }
-            else if (!checkPassword(tboxPassword.Text))
+            else if (!CheckPassword(tboxPassword.Text))
             {
                 return false;
             }
@@ -136,7 +137,12 @@ namespace Детский_сад
             return true;
         }
 
-        private bool checkPassword(string s)
+        /// <summary>
+        /// Валидация пароля
+        /// </summary>
+        /// <param name="s">Пароль</param>
+        /// <returns>Валидация прошла успешно - true, иначе - false</returns>
+        private bool CheckPassword(string s)
         {
             if (tboxPassword.Text.Length < 8)
             {
@@ -163,6 +169,7 @@ namespace Детский_сад
                 MessageBox.Show("Пароль должен содержать минимум 1 специальный символ", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
+
             return true;
         }
     }

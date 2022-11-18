@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Детский_сад"
         mc:Ignorable="d"
         Title="AccountChangePersonal" Height="450" Width="800">
-    <Grid>
+    <Grid Background="PapayaWhip">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>

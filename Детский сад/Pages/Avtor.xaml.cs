@@ -38,7 +38,7 @@ namespace Детский_сад
             }
             else if (emp.Id_role == 1)
             {
-                Base.mainFrame.Navigate(new AdminMenu());
+                Base.mainFrame.Navigate(new Account(emp)); // Доделать
             }
             else if (emp.Id_role == 2)
             {

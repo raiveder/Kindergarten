@@ -65,7 +65,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AccountChangePersonal.xaml.cs">
+    <Compile Include="Classes\Images.cs" />
+    <Compile Include="Pages\AccountChange.xaml.cs">
+      <DependentUpon>AccountChange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AccountChangePersonal.xaml.cs">
       <DependentUpon>AccountChangePersonal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Account.xaml.cs">
@@ -150,7 +154,11 @@
     <Compile Include="Pages\ViewEmployees.xaml.cs">
       <DependentUpon>ViewEmployees.xaml</DependentUpon>
     </Compile>
-    <Page Include="AccountChangePersonal.xaml">
+    <Page Include="Pages\AccountChange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AccountChangePersonal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

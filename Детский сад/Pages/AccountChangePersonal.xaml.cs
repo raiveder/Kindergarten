@@ -51,8 +51,16 @@ namespace Детский_сад
                 User.Building = tboxBuilding.Text;
                 User.Phone = tboxPhone.Text;
 
-                Base.KE.SaveChanges();
-                Close();
+                try
+                {
+                    Base.KE.SaveChanges();
+                    Close();
+                    MessageBox.Show("Данные успешно сохранены", "Персональные данные", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Возникла ошибка! Данные не были обновлены", "Персональные данные", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
         }
 
