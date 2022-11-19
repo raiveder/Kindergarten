@@ -37,7 +37,7 @@
                 <TextBlock Name="tbAdress" Text="Адрес: " Style="{StaticResource tbAvtorReg}" Margin="5"/>
                 <TextBlock Name="tbLogin" Text="Логин: " Style="{StaticResource tbAvtorReg}" Margin="5"/>
                 <TextBlock Name="tbRole" Text="Роль: " Style="{StaticResource tbAvtorReg}" Margin="5"/>
-                <TextBlock Name="tbGroups" Text="Группы: " Style="{StaticResource tbAvtorReg}" Margin="5 10 5 10"/>
+                <TextBlock Name="tbGroups" Text="Группы: " Style="{StaticResource tbAvtorReg}" Visibility="Collapsed" Margin="5 10 5 10"/>
             </StackPanel>
             <StackPanel>
                 <Button Name="btnChangePersonal" Content="Изменить данные" Template="{StaticResource btnTemplate}" Margin="0 30 0 0" Click="btnChangePersonal_Click"/>
@@ -45,8 +45,14 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
-            <Button Name="btnChangeAccount" Content="Изменить данные учётной записи" Template="{StaticResource btnTemplate}" Margin="0 30 0 0" Click="btnChangeAccount_Click"/>
-            <TextBlock Style="{StaticResource tbAvtorReg}" Text="Здесь будет меню" HorizontalAlignment="Center"/>
+            <StackPanel Name="spAdmin">
+                <Button Name="btnViewEmp" Content="Сотрудники" Template="{StaticResource btnTemplate}" Margin="5" Click="btnViewEmp_Click"/>
+                <Button Name="btnViewChild" Content="Дети" Template="{StaticResource btnTemplate}" Margin="5" Click="btnViewChild_Click"/>
+            </StackPanel>
+            <StackPanel Name="spUser" Visibility="Collapsed">
+                <TextBlock Style="{StaticResource tbAvtorReg}" Text="Здесь будет меню" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <Button Name="btnChangeAccount" Content="Изменить данные учётной записи" Template="{StaticResource btnTemplate}" Margin="5" Click="btnChangeAccount_Click"/>
         </StackPanel>
     </Grid>
 </Page>

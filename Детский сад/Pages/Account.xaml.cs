@@ -30,16 +30,31 @@ namespace Детский_сад
             InitializeComponent();
 
             User = user;
+            tbFullName.Text += user.Surname + " " + user.Names + " " + user.Patronymic;
+            tbBirthdate.Text += user.Birthdate.ToString("D");
+            tbPosition.Text += user.Positions.Position;
+            tbAdress.Text += user.Building.ToLower() + ", " + user.Building;
+            tbLogin.Text += user.Login_user;
+            tbRole.Text += "пользователь";
+
+            ListPhoto = Base.KE.Photos.Where(x => x.Id_employee == User.Id_employee).ToList();
+            IdCurrentPhoto = ListPhoto.Count - 1;
+            Photos photo;
+
+            if (IdCurrentPhoto != -1)
+            {
+                photo = ListPhoto[IdCurrentPhoto];
+            }
+            else
+            {
+                photo = null;
+            }
+
+            imgPhoto.Source = Images.GetBitmapImage(photo);
+            imgPhoto.Stretch = Stretch.Uniform;
 
             if (user.Id_role == 2)
             {
-                tbFullName.Text += user.Surname + " " + user.Names + " " + user.Patronymic;
-                tbBirthdate.Text += user.Birthdate.ToString("D");
-                tbPosition.Text += user.Positions.Position;
-                tbAdress.Text += user.Building.ToLower() + ", " + user.Building;
-                tbLogin.Text += user.Login_user;
-                tbRole.Text += "пользователь";
-
                 List<Distributions> list = Base.KE.Distributions.Where(x => x.Id_employee == user.Id_employee).ToList();
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -51,22 +66,10 @@ namespace Детский_сад
                 }
 
                 tbGroups.Text = tbGroups.Text.Remove(tbGroups.Text.Length - 2, 2);
+                tbGroups.Visibility = Visibility.Visible;
 
-                ListPhoto = Base.KE.Photos.Where(x => x.Id_employee == User.Id_employee).ToList();
-                IdCurrentPhoto = ListPhoto.Count - 1;
-                Photos photo;
-
-                if (IdCurrentPhoto != -1)
-                {
-                    photo = ListPhoto[IdCurrentPhoto];
-                }
-                else
-                {
-                    photo = null;
-                }
-
-                imgPhoto.Source = Images.GetBitmapImage(photo);
-                imgPhoto.Stretch = Stretch.Uniform;
+                spAdmin.Visibility = Visibility.Collapsed;
+                spUser.Visibility = Visibility.Visible;
             }
         }
 
@@ -235,6 +238,16 @@ namespace Детский_сад
                     MessageBox.Show("Фото успешно добавлены", "Личный кабинет", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
+        }
+
+        private void btnViewEmp_Click(object sender, RoutedEventArgs e)
+        {
+            Base.mainFrame.Navigate(new ViewEmployees());
+        }
+
+        private void btnViewChild_Click(object sender, RoutedEventArgs e)
+        {
+            Base.mainFrame.Navigate(new ViewChildren());
         }
     }
 }

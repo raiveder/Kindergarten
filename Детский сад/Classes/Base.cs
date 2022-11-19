@@ -15,6 +15,7 @@ namespace Детский_сад
         public static Button btnAvtor;
         public static Button btnReg;
         public static Button btnMain;
+        public static Employees User;
 
         public static void tranzitionMain()
         {

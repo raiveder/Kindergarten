@@ -30,7 +30,7 @@ namespace Детский_сад
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            Base.mainFrame.Navigate(new AdminMenu());
+            Base.mainFrame.Navigate(new Account(Base.User));
         }
 
         private void tbMather_Loaded(object sender, RoutedEventArgs e)
