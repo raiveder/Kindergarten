@@ -8,8 +8,36 @@
       d:DesignHeight="630" d:DesignWidth="1250"
       Title="ViewChildren">
 
-    <Grid>
-        <ListView Name="lv" Margin="0 0 0 65" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="PapayaWhip" MouseDoubleClick="lv_MouseDoubleClick">
+    <Grid Background="PapayaWhip" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <StackPanel Margin="10 10 10 5">
+                <TextBlock Text="Фильтр по" Style="{StaticResource tbAvtorReg}"/>
+                <ComboBox Name="CbFilter"  Style="{StaticResource cbReg}" Width="200" HorizontalAlignment="Left" SelectionChanged="CbFilter_SelectionChanged">
+                    <ComboBoxItem>Нет</ComboBoxItem>
+                    <ComboBoxItem>Фамилия</ComboBoxItem>
+                    <ComboBoxItem>Имя</ComboBoxItem>
+                    <ComboBoxItem>Отчество</ComboBoxItem>
+                    <ComboBoxItem>Группа</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Margin="10 5 10 5">
+                <TextBlock Text="Значение" Style="{StaticResource tbAvtorReg}"/>
+                <TextBox Name="TBoxFind" Style="{StaticResource tboxReg}" HorizontalAlignment="Left" TextChanged="TBoxFind_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 0">
+                <CheckBox Name="ChBPhoto" VerticalAlignment="Center" Click="ChBPhoto_Click"/>
+                <TextBlock Text="Только с фото" Style="{StaticResource tbAvtorReg}" Margin="5 0 0 0"/>
+            </StackPanel>
+        </StackPanel>
+
+        <ListView Grid.Column="1" Name="lv" Margin="0 0 0 65" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="PapayaWhip" MouseDoubleClick="lv_MouseDoubleClick">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel HorizontalAlignment="Center"/>
@@ -47,6 +75,6 @@
         </ListView>
 
         <Button Name="btnBack" Content="Назад" Template="{StaticResource btnTemplate}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10" Click="btnBack_Click"/>
-        <Button Name="btnAdd" Content="Добавить" Template="{StaticResource btnTemplate}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Click="btnAdd_Click"/>
+        <Button Name="btnAdd" Content="Добавить" Grid.Column="1" Template="{StaticResource btnTemplate}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Click="btnAdd_Click"/>
     </Grid>
 </Page>

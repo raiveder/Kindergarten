@@ -17,16 +17,16 @@
 
         <StackPanel Name="spSize" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Name="btnBackPhoto" Content="◄ " Template="{StaticResource btnUsersWidthTemplate}" MinWidth="50" Visibility="Hidden" Click="btnBackPhoto_Click"/>
+                <Button Name="BtnBackPhoto" Content="◄ " Template="{StaticResource btnUsersWidthTemplate}" MinWidth="50" Visibility="Hidden" Click="BtnBackPhoto_Click"/>
                 <Image Name="imgPhoto" Source="..\Resources\Заглушка.png" Width="100" Margin="30 10 30 30"/>
-                <Button Name="btnNextPhoto" Content="  ►" Template="{StaticResource btnUsersWidthTemplate}" MinWidth="50" Visibility="Hidden" Click="btnNextPhoto_Click"/>
+                <Button Name="BtnNextPhoto" Content="  ►" Template="{StaticResource btnUsersWidthTemplate}" MinWidth="50" Visibility="Hidden" Click="BtnNextPhoto_Click"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                <Button Name="btnChangePhoto" Content="Изменить" Template="{StaticResource btnTemplate}" Margin="0 0 5 0" Click="btnChangePhoto_Click"/>
-                <Button Name="btnAddPhoto" Content="Добавить" Template="{StaticResource btnTemplate}" Margin="5 0 0 0" Click="btnAddPhoto_Click"/>
+                <Button Name="BtnChangePhoto" Content="Изменить" Template="{StaticResource btnTemplate}" Margin="0 0 5 0" Click="BtnChangePhoto_Click"/>
+                <Button Name="BtnAddPhoto" Content="Добавить" Template="{StaticResource btnTemplate}" Margin="5 0 0 0" Click="BtnAddPhoto_Click"/>
             </StackPanel>
-            <Button Name="btnAddSomePhotos" Content="Добавить несколько" Template="{StaticResource btnTemplate}" Margin="0 0 0 10" Click="btnAddSomePhotos_Click"/>
-            <Button Name="btnDelPhoto" Content="Удалить" Template="{StaticResource btnTemplate}" Margin="0" Click="btnDelPhoto_Click"/>
+            <Button Name="BtnAddSomePhotos" Content="Добавить несколько" Template="{StaticResource btnTemplate}" Margin="0 0 0 10" Click="BtnAddSomePhotos_Click"/>
+            <Button Name="BtnDelPhoto" Content="Удалить" Template="{StaticResource btnTemplate}" Margin="0" Click="BtnDelPhoto_Click"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -40,19 +40,19 @@
                 <TextBlock Name="tbGroups" Text="Группы: " Style="{StaticResource tbAvtorReg}" Visibility="Collapsed" Margin="5 10 5 10"/>
             </StackPanel>
             <StackPanel>
-                <Button Name="btnChangePersonal" Content="Изменить данные" Template="{StaticResource btnTemplate}" Margin="0 30 0 0" Click="btnChangePersonal_Click"/>
+                <Button Name="BtnChangePersonal" Content="Изменить данные" Template="{StaticResource btnTemplate}" Margin="0 30 0 0" Click="BtnChangePersonal_Click"/>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
             <StackPanel Name="spAdmin">
-                <Button Name="btnViewEmp" Content="Сотрудники" Template="{StaticResource btnTemplate}" Margin="5" Click="btnViewEmp_Click"/>
-                <Button Name="btnViewChild" Content="Дети" Template="{StaticResource btnTemplate}" Margin="5" Click="btnViewChild_Click"/>
+                <Button Name="BtnViewEmp" Content="Сотрудники" Template="{StaticResource btnTemplate}" Margin="5" Click="BtnViewEmp_Click"/>
+                <Button Name="BtnViewChild" Content="Дети" Template="{StaticResource btnTemplate}" Margin="5" Click="BtnViewChild_Click"/>
             </StackPanel>
             <StackPanel Name="spUser" Visibility="Collapsed">
                 <TextBlock Style="{StaticResource tbAvtorReg}" Text="Здесь будет меню" HorizontalAlignment="Center"/>
             </StackPanel>
-            <Button Name="btnChangeAccount" Content="Изменить данные учётной записи" Template="{StaticResource btnTemplate}" Margin="5" Click="btnChangeAccount_Click"/>
+            <Button Name="BtnChangeAccount" Content="Изменить данные учётной записи" Template="{StaticResource btnTemplate}" Margin="5" Click="BtnChangeAccount_Click"/>
         </StackPanel>
     </Grid>
 </Page>

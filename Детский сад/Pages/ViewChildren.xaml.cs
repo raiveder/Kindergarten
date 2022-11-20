@@ -25,12 +25,12 @@ namespace Детский_сад
         public ViewChildren()
         {
             InitializeComponent();
-            lv.ItemsSource = Base.KE.Children.ToList();
+            CbFilter.SelectedIndex = 0;
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            Base.mainFrame.Navigate(new Account(Base.User));
+            Base.mainFrame.Navigate(new Account());
         }
 
         private void tbMather_Loaded(object sender, RoutedEventArgs e)
@@ -102,6 +102,52 @@ namespace Детский_сад
         {
             Children child = (Children)lv.SelectedItem;
             Base.mainFrame.Navigate(new AddChild(Base.KE.Children.FirstOrDefault(x => x.Id_child == child.Id_child)));
+        }
+
+        private void CbFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Filter();
+        }
+
+        private void TBoxFind_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Filter();
+        }
+
+        private void ChBPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            Filter();
+        }
+
+        private void Filter()
+        {
+            List<Children> list;
+
+            switch (CbFilter.SelectedIndex)
+            {
+                case 1:
+                    list = Base.KE.Children.Where(x => x.Surname.StartsWith(TBoxFind.Text)).ToList();
+                    break;
+                case 2:
+                    list = Base.KE.Children.Where(x => x.Names.StartsWith(TBoxFind.Text)).ToList();
+                    break;
+                case 3:
+                    list = Base.KE.Children.Where(x => x.Patronymic.StartsWith(TBoxFind.Text)).ToList();
+                    break;
+                case 4:
+                    list = Base.KE.Children.Where(x => x.Groups.Name_group.StartsWith(TBoxFind.Text)).ToList();
+                    break;
+                default:
+                    list = Base.KE.Children.ToList();
+                    break;
+            }
+
+            if ((bool)ChBPhoto.IsChecked)
+            {
+                list = list.Where(x => x.Photo != null).ToList(); //Переделать на бинарное поле
+            }
+
+            lv.ItemsSource = list;
         }
     }
 }

@@ -21,21 +21,21 @@ namespace Детский_сад
     /// </summary>
     public partial class Account : Page
     {
-        Employees User;
-        List<Photos> ListPhoto;
-        int IdCurrentPhoto;
+        private Employees User;
+        private List<Photos> ListPhoto;
+        private int IdCurrentPhoto;
 
-        public Account(Employees user)
+        public Account()
         {
             InitializeComponent();
 
-            User = user;
-            tbFullName.Text += user.Surname + " " + user.Names + " " + user.Patronymic;
-            tbBirthdate.Text += user.Birthdate.ToString("D");
-            tbPosition.Text += user.Positions.Position;
-            tbAdress.Text += user.Building.ToLower() + ", " + user.Building;
-            tbLogin.Text += user.Login_user;
-            tbRole.Text += "пользователь";
+            User = Base.User;
+            tbFullName.Text += User.Surname + " " + User.Names + " " + User.Patronymic;
+            tbBirthdate.Text += User.Birthdate.ToString("D");
+            tbPosition.Text += User.Positions.Position;
+            tbAdress.Text += User.Street.ToLower() + ", " + User.Building;
+            tbLogin.Text += User.Login_user;
+            tbRole.Text += User.Roles.Role_name.ToLower();
 
             ListPhoto = Base.KE.Photos.Where(x => x.Id_employee == User.Id_employee).ToList();
             IdCurrentPhoto = ListPhoto.Count - 1;
@@ -53,9 +53,9 @@ namespace Детский_сад
             imgPhoto.Source = Images.GetBitmapImage(photo);
             imgPhoto.Stretch = Stretch.Uniform;
 
-            if (user.Id_role == 2)
+            if (User.Id_role == 2)
             {
-                List<Distributions> list = Base.KE.Distributions.Where(x => x.Id_employee == user.Id_employee).ToList();
+                List<Distributions> list = Base.KE.Distributions.Where(x => x.Id_employee == User.Id_employee).ToList();
                 for (int i = 0; i < list.Count; i++)
                 {
                     tbGroups.Text += list[i].Groups.Name_group + ", ";
@@ -73,7 +73,7 @@ namespace Детский_сад
             }
         }
 
-        private void btnAddPhoto_Click(object sender, RoutedEventArgs e)
+        private void BtnAddPhoto_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.ShowDialog();
@@ -81,7 +81,7 @@ namespace Детский_сад
             {
                 if (Images.AddPhoto(ofd.FileName, true, User.Id_employee))
                 {
-                    Base.mainFrame.Navigate(new Account(User));
+                    Base.mainFrame.Navigate(new Account());
                     MessageBox.Show("Фото успешно добавлено", "Личный кабинет", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
@@ -91,7 +91,7 @@ namespace Детский_сад
             }
         }
 
-        private void btnDelPhoto_Click(object sender, RoutedEventArgs e)
+        private void BtnDelPhoto_Click(object sender, RoutedEventArgs e)
         {
 
             if (IdCurrentPhoto == -1)
@@ -111,13 +111,13 @@ namespace Детский_сад
             if (IdCurrentPhoto == -1)
             {
                 photo = null;
-                btnBackPhoto.Visibility = Visibility.Hidden;
+                BtnBackPhoto.Visibility = Visibility.Hidden;
             }
             else
             {
                 if (IdCurrentPhoto == 0)
                 {
-                    btnBackPhoto.Visibility = Visibility.Hidden;
+                    BtnBackPhoto.Visibility = Visibility.Hidden;
                 }
 
                 photo = ListPhoto[IdCurrentPhoto];
@@ -125,22 +125,22 @@ namespace Детский_сад
             imgPhoto.Source = Images.GetBitmapImage(photo);
         }
 
-        private void btnChangePhoto_Click(object sender, RoutedEventArgs e)
+        private void BtnChangePhoto_Click(object sender, RoutedEventArgs e)
         {
-            if (btnChangePhoto.Content.ToString() == "Изменить")
+            if (BtnChangePhoto.Content.ToString() == "Изменить")
             {
-                btnChangePhoto.Content = "Сохранить";
+                BtnChangePhoto.Content = "Сохранить";
                 if (IdCurrentPhoto != -1)
                 {
-                    btnBackPhoto.Visibility = Visibility.Visible;
+                    BtnBackPhoto.Visibility = Visibility.Visible;
                 }
 
             }
             else
             {
-                btnChangePhoto.Content = "Изменить";
-                btnBackPhoto.Visibility = Visibility.Hidden;
-                btnNextPhoto.Visibility = Visibility.Hidden;
+                BtnChangePhoto.Content = "Изменить";
+                BtnBackPhoto.Visibility = Visibility.Hidden;
+                BtnNextPhoto.Visibility = Visibility.Hidden;
 
                 if (IdCurrentPhoto != -1)
                 {
@@ -156,12 +156,12 @@ namespace Детский_сад
                     Base.KE.Photos.Add(newPhoto);
                     Base.KE.SaveChanges();
 
-                    Base.mainFrame.Navigate(new Account(User));
+                    Base.mainFrame.Navigate(new Account());
                 }
             }
         }
 
-        private void btnBackPhoto_Click(object sender, RoutedEventArgs e)
+        private void BtnBackPhoto_Click(object sender, RoutedEventArgs e)
         {
             IdCurrentPhoto--;
             Photos photo = ListPhoto[IdCurrentPhoto];
@@ -173,13 +173,13 @@ namespace Детский_сад
 
             if (IdCurrentPhoto == 0)
             {
-                btnBackPhoto.Visibility = Visibility.Hidden;
+                BtnBackPhoto.Visibility = Visibility.Hidden;
             }
 
-            btnNextPhoto.Visibility = Visibility.Visible;
+            BtnNextPhoto.Visibility = Visibility.Visible;
         }
 
-        private void btnNextPhoto_Click(object sender, RoutedEventArgs e)
+        private void BtnNextPhoto_Click(object sender, RoutedEventArgs e)
         {
             IdCurrentPhoto++;
             Photos photo = ListPhoto[IdCurrentPhoto];
@@ -191,26 +191,26 @@ namespace Детский_сад
 
             if (IdCurrentPhoto == ListPhoto.Count - 1)
             {
-                btnNextPhoto.Visibility = Visibility.Hidden;
+                BtnNextPhoto.Visibility = Visibility.Hidden;
             }
 
-            btnBackPhoto.Visibility = Visibility.Visible;
+            BtnBackPhoto.Visibility = Visibility.Visible;
         }
 
-        private void btnChangePersonal_Click(object sender, RoutedEventArgs e)
+        private void BtnChangePersonal_Click(object sender, RoutedEventArgs e)
         {
             AccountChangePersonal acp = new AccountChangePersonal(User);
             acp.ShowDialog();
-            Base.mainFrame.Navigate(new Account(User));
+            Base.mainFrame.Navigate(new Account());
         }
 
-        private void btnChangeAccount_Click(object sender, RoutedEventArgs e)
+        private void BtnChangeAccount_Click(object sender, RoutedEventArgs e)
         {
             AccountChange ac = new AccountChange(User);
             ac.ShowDialog();
         }
 
-        private void btnAddSomePhotos_Click(object sender, RoutedEventArgs e)
+        private void BtnAddSomePhotos_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Multiselect = true;
@@ -227,7 +227,7 @@ namespace Детский_сад
                     }
                 }
 
-                Base.mainFrame.Navigate(new Account(User));
+                Base.mainFrame.Navigate(new Account());
 
                 if (check)
                 {
@@ -240,12 +240,12 @@ namespace Детский_сад
             }
         }
 
-        private void btnViewEmp_Click(object sender, RoutedEventArgs e)
+        private void BtnViewEmp_Click(object sender, RoutedEventArgs e)
         {
             Base.mainFrame.Navigate(new ViewEmployees());
         }
 
-        private void btnViewChild_Click(object sender, RoutedEventArgs e)
+        private void BtnViewChild_Click(object sender, RoutedEventArgs e)
         {
             Base.mainFrame.Navigate(new ViewChildren());
         }

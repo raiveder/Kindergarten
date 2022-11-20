@@ -39,11 +39,12 @@ namespace Детский_сад
             else if (emp.Id_role == 1)
             {
                 Base.User = emp;
-                Base.mainFrame.Navigate(new Account(emp));
+                Base.mainFrame.Navigate(new Account());
             }
             else if (emp.Id_role == 2)
             {
-                Base.mainFrame.Navigate(new Account(emp));
+                Base.User = emp;
+                Base.mainFrame.Navigate(new Account());
             }
         }
     }
