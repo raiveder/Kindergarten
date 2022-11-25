@@ -31,6 +31,19 @@
                 <TextBox Name="TBoxFind" Style="{StaticResource tboxReg}" HorizontalAlignment="Left" TextChanged="TBoxFind_TextChanged"/>
             </StackPanel>
 
+            <StackPanel Margin="10 5 10 5">
+                <TextBlock Text="Сортировка" Style="{StaticResource tbAvtorReg}"/>
+                <ComboBox Name="CbSort"  Style="{StaticResource cbReg}" Width="200" HorizontalAlignment="Left" SelectionChanged="CbFilter_SelectionChanged">
+                    <ComboBoxItem>Нет</ComboBoxItem>
+                    <ComboBoxItem>Фамилия↑</ComboBoxItem>
+                    <ComboBoxItem>Имя↑</ComboBoxItem>
+                    <ComboBoxItem>Отчество↑</ComboBoxItem>
+                    <ComboBoxItem>Фамилия↓</ComboBoxItem>
+                    <ComboBoxItem>Имя↓</ComboBoxItem>
+                    <ComboBoxItem>Отчество↓</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
             <StackPanel Orientation="Horizontal" Margin="10 5 10 0">
                 <CheckBox Name="ChBPhoto" VerticalAlignment="Center" Click="ChBPhoto_Click"/>
                 <TextBlock Text="Только с фото" Style="{StaticResource tbAvtorReg}" Margin="5 0 0 0"/>

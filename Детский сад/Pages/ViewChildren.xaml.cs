@@ -121,7 +121,7 @@ namespace Детский_сад
 
         private void Filter()
         {
-            List<Children> list;
+            List<Children> list = new List<Children>();
 
             switch (CbFilter.SelectedIndex)
             {
@@ -135,7 +135,15 @@ namespace Детский_сад
                     list = Base.KE.Children.Where(x => x.Patronymic.StartsWith(TBoxFind.Text)).ToList();
                     break;
                 case 4:
-                    list = Base.KE.Children.Where(x => x.Groups.Name_group.StartsWith(TBoxFind.Text)).ToList();
+                    foreach (Children item in Base.KE.Children)
+                    {
+                        if (item.Groups.Name_group.StartsWith(TBoxFind.Text))
+                        {
+                            list.Add(item);
+                        }
+                    }
+
+                    //list = Base.KE.Children.Where(x => x.Groups.Name_group.StartsWith(TBoxFind.Text)).ToList();
                     break;
                 default:
                     list = Base.KE.Children.ToList();
@@ -144,7 +152,32 @@ namespace Детский_сад
 
             if ((bool)ChBPhoto.IsChecked)
             {
-                list = list.Where(x => x.Photo != null).ToList(); //Переделать на бинарное поле
+                list = list.Where(x => x.Photo != null).ToList();
+            }
+
+            switch (CbSort.SelectedIndex)
+            {
+                case 1:
+                    list.Sort((x, y) => x.Surname.CompareTo(y.Surname));
+                    break;
+                case 2:
+                    list.Sort((x, y) => x.Names.CompareTo(y.Names));
+                    break;
+                case 3:
+                    list.Sort((x, y) => x.Patronymic.CompareTo(y.Patronymic));
+                    break;
+                case 4:
+                    list.Sort((x, y) => x.Surname.CompareTo(y.Surname));
+                    list.Reverse();
+                    break;
+                case 5:
+                    list.Sort((x, y) => x.Names.CompareTo(y.Names));
+                    list.Reverse();
+                    break;
+                case 6:
+                    list.Sort((x, y) => x.Patronymic.CompareTo(y.Patronymic));
+                    list.Reverse();
+                    break;
             }
 
             lv.ItemsSource = list;
