@@ -143,7 +143,6 @@ namespace Детский_сад
                         }
                     }
 
-                    //list = Base.KE.Children.Where(x => x.Groups.Name_group.StartsWith(TBoxFind.Text)).ToList();
                     break;
                 default:
                     list = Base.KE.Children.ToList();
@@ -152,7 +151,7 @@ namespace Детский_сад
 
             if ((bool)ChBPhoto.IsChecked)
             {
-                list = list.Where(x => x.Photo != null).ToList();
+                list = list.Where(x => x.Photo != "\\Resources\\Заглушка.png").ToList();
             }
 
             switch (CbSort.SelectedIndex)

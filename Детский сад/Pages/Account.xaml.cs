@@ -79,7 +79,7 @@ namespace Детский_сад
             ofd.ShowDialog();
             if (ofd.FileName != "")
             {
-                if (Images.AddPhoto(ofd.FileName, true, User.Id_employee))
+                if (Images.AddPhoto(ofd.FileName, User.Id_employee))
                 {
                     Base.mainFrame.Navigate(new Account());
                     MessageBox.Show("Фото успешно добавлено", "Личный кабинет", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -148,7 +148,6 @@ namespace Детский_сад
                     Photos newPhoto = new Photos()
                     {
                         Id_employee = photo.Id_employee,
-                        Id_children = photo.Id_children,
                         Byte_photo = photo.Byte_photo,
                         Path_photo = photo.Path_photo
                     };
@@ -221,7 +220,7 @@ namespace Детский_сад
 
                 foreach (string path in ofd.FileNames)
                 {
-                    if (!Images.AddPhoto(path, true, User.Id_employee))
+                    if (!Images.AddPhoto(path, User.Id_employee))
                     {
                         check = true;
                     }

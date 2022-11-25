@@ -43,19 +43,12 @@ namespace Детский_сад
         /// <param name="entity">Вид добавления: true - сотрудник, false - ребёнок</param>
         /// <param name="id">Код </param>
         /// <returns>true, если добавление прошло удачно, иначе - false</returns>
-        public static bool AddPhoto(string path, bool entity, int id)
+        public static bool AddPhoto(string path, int id)
         {
             try
             {
                 Photos photo = new Photos();
-                if (entity)
-                {
-                    photo.Id_employee = id;
-                }
-                else
-                {
-                    photo.Id_children = id;
-                }
+                photo.Id_employee = id;
 
                 Image sdi = Image.FromFile(path);
                 ImageConverter ic = new ImageConverter();
