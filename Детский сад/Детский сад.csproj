@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Images.cs" />
+    <Compile Include="Classes\Pagination.cs" />
     <Compile Include="Pages\AccountChange.xaml.cs">
       <DependentUpon>AccountChange.xaml</DependentUpon>
     </Compile>

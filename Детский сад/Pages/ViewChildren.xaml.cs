@@ -22,10 +22,16 @@ namespace Детский_сад
     /// </summary>
     public partial class ViewChildren : Page
     {
+        Pagination Pagin = new Pagination();
+        List<Children> ChildList = new List<Children>();
+
         public ViewChildren()
         {
             InitializeComponent();
             CbFilter.SelectedIndex = 0;
+            ChildList = Base.KE.Children.ToList();
+            Pagin.CountPage = Base.KE.Children.ToList().Count;
+            DataContext = Pagin;
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -180,6 +186,42 @@ namespace Детский_сад
             }
 
             lv.ItemsSource = list;
+        }
+
+        private void GoPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            TextBlock tb = (TextBlock)sender;
+
+            switch (tb.Uid)
+            {
+                case "back":
+                    Pagin.CurrentPage--;
+                    break;
+                case "next":
+                    Pagin.CurrentPage++;
+                    break;
+                default:
+                    Pagin.CurrentPage = Convert.ToInt32(tb.Text);
+                    break;
+            }
+
+            lv.ItemsSource = ChildList.Skip(Pagin.CurrentPage * Pagin.CountPage - Pagin.CountPage).Take(Pagin.CountPage).ToList();
+        }
+
+        private void tboxPageCount_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                Pagin.CountPage = Convert.ToInt32(tboxPageCount.Text);
+            }
+            catch
+            {
+                Pagin.CountPage = ChildList.Count;
+            }
+
+            Pagin.CountList = ChildList.Count;
+            lv.ItemsSource = ChildList.Skip(0).Take(Pagin.CountPage).ToList();
+            Pagin.CurrentPage = 1;
         }
     }
 }

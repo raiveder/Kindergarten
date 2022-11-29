@@ -44,9 +44,24 @@
                 </ComboBox>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="10 5 10 0">
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
                 <CheckBox Name="ChBPhoto" VerticalAlignment="Center" Click="ChBPhoto_Click"/>
                 <TextBlock Text="Только с фото" Style="{StaticResource tbAvtorReg}" Margin="5 0 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 25 10 5">
+                <TextBlock Text="Записей на странице" Style="{StaticResource tbAvtorReg}"/>
+                <TextBox Name="tboxPageCount" Width="50" TextChanged="tboxPageCount_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
+                <TextBlock Name="tboxPrev" Uid="back" Text=" &lt; " Style="{StaticResource tbAvtorReg}" Margin="0 0 5 0" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="tboxPrev1" Uid="1" Text="{Binding  Path = NPage[0]}" Visibility="{Binding Visible[0]}"  Style="{StaticResource tbAvtorReg}" Margin="0 0 5 0" Foreground="{Binding Gray[0]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="tboxPrev2" Uid="2" Text="{Binding  Path = NPage[1]}" Visibility="{Binding Visible[1]}"  Style="{StaticResource tbAvtorReg}" Margin="0 0 5 0" Foreground="{Binding Gray[1]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="tboxPrev3" Uid="3" Text="{Binding  Path = NPage[2]}" Visibility="{Binding Visible[2]}"  Style="{StaticResource tbAvtorReg}" Margin="0 0 5 0" Foreground="{Binding Gray[2]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="tboxPrev4" Uid="4" Text="{Binding  Path = NPage[3]}" Visibility="{Binding Visible[3]}"  Style="{StaticResource tbAvtorReg}" Margin="0 0 5 0" Foreground="{Binding Gray[3]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="tboxPrev5" Uid="5" Text="{Binding  Path = NPage[4]}" Visibility="{Binding Visible[4]}"  Style="{StaticResource tbAvtorReg}" Margin="0 0 5 0" Foreground="{Binding Gray[4]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="tboxPrevNext" Uid="next" Text=" &gt;"  Style="{StaticResource tbAvtorReg}" MouseDown="GoPage_MouseDown"/>
             </StackPanel>
         </StackPanel>
 
