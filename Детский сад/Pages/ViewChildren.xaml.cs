@@ -32,6 +32,8 @@ namespace Детский_сад
             lv.ItemsSource = ChildList;
             Pagin.CountPage = Base.KE.Children.ToList().Count;
             DataContext = Pagin;
+            //CbFilter.SelectedIndex = 0;
+            //CbSort.SelectedIndex = 0; //Не могу понять почему выскакивает ошибка в строке 112 класса Pagination (PropertyChanged(this, new PropertyChangedEventArgs("NPage"));)
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
