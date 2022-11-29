@@ -28,8 +28,8 @@ namespace Детский_сад
         public ViewChildren()
         {
             InitializeComponent();
-            CbFilter.SelectedIndex = 0;
             ChildList = Base.KE.Children.ToList();
+            lv.ItemsSource = ChildList;
             Pagin.CountPage = Base.KE.Children.ToList().Count;
             DataContext = Pagin;
         }
@@ -127,65 +127,69 @@ namespace Детский_сад
 
         private void Filter()
         {
-            List<Children> list = new List<Children>();
+            ChildList.Clear();
 
             switch (CbFilter.SelectedIndex)
             {
                 case 1:
-                    list = Base.KE.Children.Where(x => x.Surname.StartsWith(TBoxFind.Text)).ToList();
+                    ChildList = Base.KE.Children.Where(x => x.Surname.StartsWith(TBoxFind.Text)).ToList();
                     break;
                 case 2:
-                    list = Base.KE.Children.Where(x => x.Names.StartsWith(TBoxFind.Text)).ToList();
+                    ChildList = Base.KE.Children.Where(x => x.Names.StartsWith(TBoxFind.Text)).ToList();
                     break;
                 case 3:
-                    list = Base.KE.Children.Where(x => x.Patronymic.StartsWith(TBoxFind.Text)).ToList();
+                    ChildList = Base.KE.Children.Where(x => x.Patronymic.StartsWith(TBoxFind.Text)).ToList();
                     break;
                 case 4:
                     foreach (Children item in Base.KE.Children)
                     {
                         if (item.Groups.Name_group.StartsWith(TBoxFind.Text))
                         {
-                            list.Add(item);
+                            ChildList.Add(item);
                         }
                     }
 
                     break;
                 default:
-                    list = Base.KE.Children.ToList();
+                    ChildList = Base.KE.Children.ToList();
                     break;
             }
 
             if ((bool)ChBPhoto.IsChecked)
             {
-                list = list.Where(x => x.Photo != "\\Resources\\Заглушка.png").ToList();
+                ChildList = ChildList.Where(x => x.Photo != "\\Resources\\Заглушка.png").ToList();
             }
 
             switch (CbSort.SelectedIndex)
             {
                 case 1:
-                    list.Sort((x, y) => x.Surname.CompareTo(y.Surname));
+                    ChildList.Sort((x, y) => x.Surname.CompareTo(y.Surname));
                     break;
                 case 2:
-                    list.Sort((x, y) => x.Names.CompareTo(y.Names));
+                    ChildList.Sort((x, y) => x.Names.CompareTo(y.Names));
                     break;
                 case 3:
-                    list.Sort((x, y) => x.Patronymic.CompareTo(y.Patronymic));
+                    ChildList.Sort((x, y) => x.Patronymic.CompareTo(y.Patronymic));
                     break;
                 case 4:
-                    list.Sort((x, y) => x.Surname.CompareTo(y.Surname));
-                    list.Reverse();
+                    ChildList.Sort((x, y) => x.Surname.CompareTo(y.Surname));
+                    ChildList.Reverse();
                     break;
                 case 5:
-                    list.Sort((x, y) => x.Names.CompareTo(y.Names));
-                    list.Reverse();
+                    ChildList.Sort((x, y) => x.Names.CompareTo(y.Names));
+                    ChildList.Reverse();
                     break;
                 case 6:
-                    list.Sort((x, y) => x.Patronymic.CompareTo(y.Patronymic));
-                    list.Reverse();
+                    ChildList.Sort((x, y) => x.Patronymic.CompareTo(y.Patronymic));
+                    ChildList.Reverse();
                     break;
             }
 
-            lv.ItemsSource = list;
+            lv.ItemsSource = ChildList;
+            if(ChildList.Count != 0)
+            {
+                SetPagination();
+            }
         }
 
         private void GoPage_MouseDown(object sender, MouseButtonEventArgs e)
@@ -194,6 +198,12 @@ namespace Детский_сад
 
             switch (tb.Uid)
             {
+                case "first":
+                    Pagin.CurrentPage = 1;
+                    break;
+                case "last":
+                    Pagin.CurrentPage = ChildList.Count;
+                    break;
                 case "back":
                     Pagin.CurrentPage--;
                     break;
@@ -209,6 +219,11 @@ namespace Детский_сад
         }
 
         private void tboxPageCount_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetPagination();
+        }
+
+        private void SetPagination()
         {
             try
             {

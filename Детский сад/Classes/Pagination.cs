@@ -14,6 +14,7 @@ namespace Детский_сад
         public int[] NPage { get; set; } = new int[Countitems];
         public string[] Visible { get; set; } = new string[Countitems];
         public string[] Gray { get; set; } = new string[Countitems];
+
         private int Countpages; //Количество страниц
         public int CountPages
         {
