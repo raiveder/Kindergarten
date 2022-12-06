@@ -133,7 +133,6 @@ namespace Детский_сад
             }
 
             Сurrentpage = 1;
-            Countlist = 1;
         }
     }
 }

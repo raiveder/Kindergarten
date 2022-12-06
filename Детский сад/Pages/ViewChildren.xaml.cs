@@ -24,6 +24,8 @@ namespace Детский_сад
     {
         Pagination Pagin = new Pagination();
         List<Children> ChildList = new List<Children>();
+        bool StartForFilter = true;
+        bool StartForSort = true;
 
         public ViewChildren()
         {
@@ -32,6 +34,9 @@ namespace Детский_сад
             lv.ItemsSource = ChildList;
             Pagin.CountPage = Base.KE.Children.ToList().Count;
             DataContext = Pagin;
+
+            CbFilter.SelectedIndex = 0;
+            CbSort.SelectedIndex = 0;
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -186,7 +191,7 @@ namespace Детский_сад
             }
 
             lv.ItemsSource = ChildList;
-            if(ChildList.Count != 0)
+            if (ChildList.Count != 0)
             {
                 SetPagination();
             }
@@ -236,7 +241,18 @@ namespace Детский_сад
 
             Pagin.CountList = ChildList.Count;
             lv.ItemsSource = ChildList.Skip(0).Take(Pagin.CountPage).ToList();
-            Pagin.CurrentPage = 1;
+
+            if (!StartForFilter && !StartForSort)
+            {
+                Pagin.CurrentPage = 1;
+            }
+
+            if (!StartForFilter)
+            {
+                StartForSort = false;
+            }
+
+            StartForFilter = false;
         }
     }
 }
