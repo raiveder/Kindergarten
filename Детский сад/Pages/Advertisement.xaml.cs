@@ -24,14 +24,6 @@ namespace Детский_сад
         public Advertisement()
         {
             InitializeComponent();
-            
-            DoubleAnimation tbWidthAnimation = new DoubleAnimation();
-            tbWidthAnimation.From = 400;
-            tbWidthAnimation.To = 230;
-            tbWidthAnimation.Duration = TimeSpan.FromSeconds(2);
-            tbWidthAnimation.RepeatBehavior = RepeatBehavior.Forever;
-            tbWidthAnimation.AutoReverse = true;
-            spDescription.BeginAnimation(WidthProperty, tbWidthAnimation);
 
             DoubleAnimation tbFontAnimation = new DoubleAnimation();
             tbFontAnimation.From = 20;
@@ -51,7 +43,7 @@ namespace Детский_сад
 
             DoubleAnimation btnWidthAnimation = new DoubleAnimation();
             btnWidthAnimation.From = 170;
-            btnWidthAnimation.To = 300;
+            btnWidthAnimation.To = 200;
             btnWidthAnimation.Duration = TimeSpan.FromSeconds(1);
             btnWidthAnimation.RepeatBehavior = RepeatBehavior.Forever;
             btnWidthAnimation.AutoReverse = true;
@@ -59,11 +51,29 @@ namespace Детский_сад
 
             DoubleAnimation btnHeightAnimation = new DoubleAnimation();
             btnHeightAnimation.From = 50;
-            btnHeightAnimation.To = 80;
+            btnHeightAnimation.To = 70;
             btnHeightAnimation.Duration = TimeSpan.FromSeconds(1);
             btnHeightAnimation.RepeatBehavior = RepeatBehavior.Forever;
             btnHeightAnimation.AutoReverse = true;
             btn.BeginAnimation(HeightProperty, btnHeightAnimation);
+
+            ThicknessAnimation btnThicknessAnimation = new ThicknessAnimation();
+            btnThicknessAnimation.From = new Thickness(0, 0, 190, 30);
+            btnThicknessAnimation.To = new Thickness(190, 30, 0, 0);
+            btnThicknessAnimation.Duration = TimeSpan.FromSeconds(2);
+            btnHeightAnimation.RepeatBehavior = RepeatBehavior.Forever;
+            btnHeightAnimation.AutoReverse = true;
+            btn.BeginAnimation(MarginProperty, btnThicknessAnimation);
+
+            ColorAnimation btnBackgroundAnimation = new ColorAnimation();
+            Color Cstart = Color.FromRgb(255, 0, 0);
+            btn.Background = new SolidColorBrush(Cstart);
+            btnBackgroundAnimation.From = Color.FromRgb(248, 168, 27);
+            btnBackgroundAnimation.To = Color.FromRgb(0, 175, 176);
+            btnBackgroundAnimation.Duration = TimeSpan.FromSeconds(2);
+            btnBackgroundAnimation.RepeatBehavior = RepeatBehavior.Forever;
+            btnBackgroundAnimation.AutoReverse = true;
+            btn.Background.BeginAnimation(SolidColorBrush.ColorProperty, btnBackgroundAnimation);
         }
     }
 }
