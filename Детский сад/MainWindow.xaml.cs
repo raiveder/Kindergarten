@@ -47,5 +47,10 @@ namespace Детский_сад
         {
             Base.mainFrame.Navigate(new Main());
         }
+
+        private void btnAdvertising_Click(object sender, RoutedEventArgs e)
+        {
+            Base.mainFrame.Navigate(new Advertisement());
+        }
     }
 }

@@ -32,6 +32,8 @@
             <Button Name="btnMain" Grid.Row="0" Grid.Column="3" Content="Выйти" Template="{StaticResource btnTemplate}" Margin="10"  Click="btnMain_Click"/>
         </StackPanel>
 
+        <Button Name="btnAdvertising" Grid.Row="0" Grid.Column="3" Content="Реклама" Template="{StaticResource btnTemplate}" Margin="10" HorizontalAlignment="Left" Click="btnAdvertising_Click"/>
+
         <Frame Name="frm" Grid.Row="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

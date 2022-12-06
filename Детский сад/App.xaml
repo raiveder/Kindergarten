@@ -23,7 +23,8 @@
         <ControlTemplate TargetType="Button" x:Key="btnUsersWidthTemplate">
             <Border x:Name="btnBorder" CornerRadius="10" BorderThickness="1" BorderBrush="Black"
                     Background="NavajoWhite" Padding="10" HorizontalAlignment="Center"
-                    VerticalAlignment="Center" MinWidth="{TemplateBinding MinWidth}" Cursor="Hand">
+                    VerticalAlignment="Center" MinWidth="{TemplateBinding MinWidth}" Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}" Cursor="Hand">
                 <ContentControl x:Name="bntControl" Content="{TemplateBinding Content}"
                                 FontFamily="Arial Narrow" FontSize="20"
                                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -135,6 +136,13 @@
             <Setter Property="FontSize" Value="17"/>
             <Setter Property="FontFamily" Value="Arial Narrow"/>
             <Setter Property="Margin" Value="10 0 10 0"/>
+        </Style>
+
+
+
+        <Style x:Key="tbAdvertisement" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontFamily" Value="Arial Narrow"/>
         </Style>
 
     </Application.Resources>
