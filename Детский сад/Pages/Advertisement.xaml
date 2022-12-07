@@ -26,11 +26,11 @@
                 <TextBlock Grid.Column="1" Name="tbName" Text="Детский сад радужный" Style="{StaticResource tbAdvertisement}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
                 <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0 10 0">
-                    <TextBlock Grid.Column="1" Name="tbDescriptionFirst" Text="Проходит набор вне очереди" Style="{StaticResource tbAdvertisement}" FontSize="20"/>
-                    <TextBlock Grid.Column="1" Name="tbDescriptionSecond" Text="детей в возрасте до 3-х лет" Style="{StaticResource tbAdvertisement}" FontSize="20"/>
+                    <TextBlock Grid.Column="1" Text="Проходит набор вне очереди" Style="{StaticResource tbAdvertisement}" FontSize="20"/>
+                    <TextBlock Grid.Column="1" Text="детей в возрасте до 3-х лет" Style="{StaticResource tbAdvertisement}" FontSize="20"/>
                 </StackPanel>
 
-                <Button Grid.Column="1" Grid.Row="2" Name="btn" Content="Записаться сейчас" Template="{StaticResource btnUsersColorTemplate}" Margin="0 0 150 30"/>
+                <Button Grid.Column="1" Grid.Row="2" Name="btn" Content="Записаться сейчас" Template="{StaticResource btnUsersColorTemplate}"/>
             </Grid>
         </StackPanel>
     </Grid>

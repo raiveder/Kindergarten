@@ -60,9 +60,9 @@ namespace Детский_сад
             ThicknessAnimation btnThicknessAnimation = new ThicknessAnimation();
             btnThicknessAnimation.From = new Thickness(0, 0, 190, 30);
             btnThicknessAnimation.To = new Thickness(190, 30, 0, 0);
-            btnThicknessAnimation.Duration = TimeSpan.FromSeconds(2);
-            btnHeightAnimation.RepeatBehavior = RepeatBehavior.Forever;
-            btnHeightAnimation.AutoReverse = true;
+            btnThicknessAnimation.Duration = TimeSpan.FromSeconds(4);
+            btnThicknessAnimation.RepeatBehavior = RepeatBehavior.Forever;
+            btnThicknessAnimation.AutoReverse = true;
             btn.BeginAnimation(MarginProperty, btnThicknessAnimation);
 
             ColorAnimation btnBackgroundAnimation = new ColorAnimation();
